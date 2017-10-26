@@ -4,6 +4,7 @@
   "description": "Easy to Use Queue based on RxJS for Delay/Throttle/Debounce Edit",
   "main": "index.js",
   "scripts": {
+    "lint": "echo lint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
