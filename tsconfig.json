@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+      "allowSyntheticDefaultImports": true
+    , "declaration": true
+    , "emitDecoratorMetadata": true
+    , "experimentalDecorators": true
+    , "skipLibCheck": true
+    , "noUnusedLocals": true
+    , "noImplicitReturns": true
+    , "noFallthroughCasesInSwitch": true
+    , "strictNullChecks": true
+    , "alwaysStrict": true
+    , "noImplicitAny": true
+    , "noImplicitThis": true
+    , "noUnusedParameters": true
+
+    , "traceResolution": false
+
+    , "outDir": "dist"
+
+    , "lib": [
+        "dom"
+      , "esnext"
+    ]
+    , "target": "es6"
+    , "module": "commonjs"
+    , "moduleResolution": "node"
+    , "sourceMap": true
+  }
+  , "include": [
+      "src/**/*.ts"
+  ]
+  , "exclude": [
+      "dist"
+    , "node_modules"
+  ]
+  , "compileOnSave": false
+  , "atom": {
+    "rewriteTsconfig": false
+  }
+}

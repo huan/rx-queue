@@ -1,0 +1,35 @@
+os:
+  - linux
+  - osx
+
+language: node_js
+node_js:
+  - '7'
+  - '8'
+
+script:
+  - echo $TRAVIS_OS_NAME
+  - node --version
+  - npm --version
+  - npm test
+  - npm run test:npm && echo 'Npm packing test passed'
+
+cache:
+  directories:
+    - node_modules
+
+notifications:
+  email:
+    on_success: change
+    on_failure: change
+
+before_deploy:
+  - npm version
+  - grep version package.json
+
+deploy:
+  provider: npm
+  email: zixia@zixia.net
+  api_key: "$NPM_TOKEN"
+  skip_cleanup: true
+
