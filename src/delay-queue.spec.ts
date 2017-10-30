@@ -12,54 +12,54 @@ import DelayQueue from './delay-queue'
 // }         from './config'
 // log.level('silly')
 
-const EXPECT_ITEM1 = { test: 'testing123' }
-const EXPECT_ITEM2 = { mol: 42 }
-const EXPECT_ITEM3 = 42
+const EXPECTED_ITEM1 = { test: 'testing123' }
+const EXPECTED_ITEM2 = { mol: 42 }
+const EXPECTED_ITEM3 = 42
 
 const DELAY_PERIOD_TIME = 10 // milliseconds
 
-test('1 item', async function (t) {
+test('DelayQueue 1 item', async function (t) {
   const q   = new DelayQueue(DELAY_PERIOD_TIME)
 
   const spy = sinon.spy()
   q.subscribe(spy)
 
-  q.next(EXPECT_ITEM1)
+  q.next(EXPECTED_ITEM1)
 
   t.ok(spy.calledOnce, 'should called right after first item')
-  t.deepEqual(spy.firstCall.args[0], EXPECT_ITEM1, 'should get the first item immediately')
+  t.deepEqual(spy.firstCall.args[0], EXPECTED_ITEM1, 'should get the first item immediately')
 })
 
-test('2 item', async function (t) {
+test('DelayQueue 2 item', async function (t) {
   const q = new DelayQueue(DELAY_PERIOD_TIME)
 
   const spy = sinon.spy()
   q.subscribe(spy)
 
-  q.next(EXPECT_ITEM1)
-  q.next(EXPECT_ITEM2)
+  q.next(EXPECTED_ITEM1)
+  q.next(EXPECTED_ITEM2)
 
   t.ok(spy.calledOnce, 'should get one item after next two item')
-  t.deepEqual(spy.firstCall.args[0], EXPECT_ITEM1, 'should get the first item only')
+  t.deepEqual(spy.firstCall.args[0], EXPECTED_ITEM1, 'should get the first item only')
 
   await new Promise(r => setTimeout(r, DELAY_PERIOD_TIME + 1))
   t.ok(spy.calledTwice, 'should get the second item after period delay')
 })
 
-test('3 items', async function (t) {
+test('DelayQueue 3 items', async function (t) {
   const q = new DelayQueue(DELAY_PERIOD_TIME)
 
   const spy = sinon.spy()
   q.subscribe(spy)
 
-  q.next(EXPECT_ITEM1)
-  q.next(EXPECT_ITEM2)
-  q.next(EXPECT_ITEM3)
+  q.next(EXPECTED_ITEM1)
+  q.next(EXPECTED_ITEM2)
+  q.next(EXPECTED_ITEM3)
 
   await new Promise(r => setTimeout(r, DELAY_PERIOD_TIME + 1))
   t.ok(spy.calledTwice, 'get second item after period')
 
   await new Promise(r => setTimeout(r, DELAY_PERIOD_TIME + 1))
   t.ok(spy.calledThrice, 'should get the third item after 2 x period')
-  t.deepEqual(spy.thirdCall.args[0], EXPECT_ITEM3, 'should received EXPECTED_ITEM3 after 2 x period')
+  t.deepEqual(spy.thirdCall.args[0], EXPECTED_ITEM3, 'should received EXPECTED_ITEM3 after 2 x period')
 })

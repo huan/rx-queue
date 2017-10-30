@@ -17,9 +17,9 @@ export class DelayQueue<T = any> extends RxQueue<T> {
   private subject      : Subject<T>
 
   constructor(
-    public period = 1000, // milliseconds
+    period?: number, // milliseconds
   ) {
-    super()
+    super(period)
     log.verbose('DelayQueue', 'constructor(%d)', period)
 
     this.subject      = new Subject<T>()

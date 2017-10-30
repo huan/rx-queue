@@ -14,10 +14,10 @@ export class DebounceQueue<T = any> extends RxQueue<T> {
   private subject      : Subject<T>
 
   constructor(
-    public period = 1000, // milliseconds
+    period?: number, // milliseconds
   ) {
-    super()
-    log.verbose('DebounceQueue', 'constructor(%d)', period)
+    super(period)
+    log.verbose('DebounceQueue', 'constructor()')
 
     this.subject      = new Subject<T>()
     this.subscription = this.subject

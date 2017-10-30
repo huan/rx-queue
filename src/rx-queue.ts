@@ -17,6 +17,13 @@ import {
 export class RxQueue<T = any> extends Subject<T> {
   private itemList: T[] = []
 
+  constructor(
+    public period = 1000, // milliseconds
+  ) {
+    super()
+    log.verbose('RxQueue', 'constructor(%d)', period)
+  }
+
   public next(item: T) {
     log.verbose('RxQueue', 'next()')
     if (this.observers.length > 0) {

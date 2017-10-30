@@ -14,10 +14,10 @@ export class ThrottleQueue<T = any> extends RxQueue<T> {
   private subject      : Subject<T>
 
   constructor(
-    public period = 1000, // milliseconds
+    period?: number, // milliseconds
   ) {
-    super()
-    log.verbose('ThrottleQueue', 'constructor(%d)', period)
+    super(period)
+    log.verbose('ThrottleQueue', 'constructor()')
 
     this.subject      = new Subject<T>()
     this.subscription = this.subject
