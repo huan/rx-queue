@@ -3,7 +3,7 @@
   "version": "0.0.8",
   "description": "Easy to Use Queue based on RxJS for Delay/Throttle/Debounce Edit",
   "main": "bundles/rx-queue.umd.js",
-  "types": "dist/rx-queue.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "clean": "rm -fr dist/* bundles/*",
     "dist": "npm run clean && npm run build && npm run rollup && npm run dist:es6to5",
