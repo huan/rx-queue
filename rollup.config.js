@@ -1,7 +1,7 @@
 import json from 'rollup-plugin-json'
 
 export default {
-  entry: 'dist/rx-queue.js',
+  entry: 'dist/index.js',
   dest: 'bundles/rx-queue.es6.umd.js',
   sourceMap: true,
   format: 'umd',
