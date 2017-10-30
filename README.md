@@ -9,6 +9,11 @@ Easy to Use ReactiveX Queue that Supports Delay/DelayExector/Throttle/Debounce F
 
 CLASSES
 -------
+1. <a href='#RxQueue'>RxQueue</a>
+1. <a href='#DelayQueue'>DelayQueue</a>
+1. <a href='#ThrottleQueue'>ThrottleQueue</a>
+1. <a href='#DebounceQueue'>DebounceQueue</a>
+1. <a href='#DelayQueueExector'>DelayQueueExector</a>
 
 ## RxQueue
 
