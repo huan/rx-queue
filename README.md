@@ -1,18 +1,18 @@
 RX-QUEUE
 --------
-[![Build Status](https://travis-ci.org/zixia/rx-queue.svg?branch=master)](https://travis-ci.org/zixia/rx-queue) [![NPM Version](https://badge.fury.io/js/rx-queue.svg)](https://badge.fury.io/js/rx-queue) [![Downloads](http://img.shields.io/npm/dm/rx-queue.svg?style=flat-square)](https://npmjs.org/package/rx-queue) [![node](https://img.shields.io/node/v/rx-queue.svg?maxAge=604800)](https://nodejs.org/) [![Powered by TypeScript](https://img.shields.io/badge/Powered%20By-TypeScript-blue.svg)](https://www.typescriptlang.org/) 
+[![Build Status](https://travis-ci.org/zixia/rx-queue.svg?branch=master)](https://travis-ci.org/zixia/rx-queue) [![NPM Version](https://badge.fury.io/js/rx-queue.svg)](https://badge.fury.io/js/rx-queue) [![Downloads](http://img.shields.io/npm/dm/rx-queue.svg?style=flat-square)](https://npmjs.org/package/rx-queue) [![Powered by TypeScript](https://img.shields.io/badge/Powered%20By-TypeScript-blue.svg)](https://www.typescriptlang.org/) 
 
 Easy to Use ReactiveX Queues with Delay/DelayExector/Throttle/Debounce Features Powered by RxJS.
 
 ![RxQueue](https://zixia.github.io/rx-queue/images/queue.png)
-> From: [Queues in JavaScript](https://www.kirupa.com/html5/queues_in_javascript.htm)
+> Picture Credit: [Queues in JavaScript](https://www.kirupa.com/html5/queues_in_javascript.htm)
 
 CLASSES
 -------
 
 ## RxQueue
 
-RxQueue is just a RxJS Subject that supports save values for the future subscription.
+RxQueue is the base class of DelayQueue/DebounceQueue/ThrottleQueue/DelayQueueExector, it extends from RxJS Subject which supports save values for the future subscription.
 
 **Example:**
 ```ts
@@ -32,7 +32,7 @@ queue.subscribe(console.log)
 ## DelayQueue
 
 ![DelayQueue](https://zixia.github.io/rx-queue/images/delay.png)
-> From: [ReactiveX Single Operator Delay](http://reactivex.io/documentation/single.html)
+> Picture Credit: [ReactiveX Single Operator Delay](http://reactivex.io/documentation/single.html)
 
 **Example:**
 ```ts
@@ -67,7 +67,7 @@ Throttling will simply prevent a function from running if it has run recently, r
 Implementations of v-sync are based on throttling: the screen will only be drawn if 16ms elapsed since the last screen draw. No matter how many times the screen refresh functionality is called, it will only run at most once every 16ms.
 
 ![ThrottleQueue](https://zixia.github.io/rx-queue/images/throttle.png)
-> From: [ReactiveX Observable Throttle](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-throttle)
+> Picture Credit: [ReactiveX Observable Throttle](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-throttle)
 
 **Example:**
 ```ts
@@ -101,7 +101,7 @@ Auto-saving or validating the contents of a text-field if the user "stopped typi
 Logging where users rest their mouse: the user is no longer moving their mouse, so the (last) position can be logged.
 
 ![DebounceQueue](https://zixia.github.io/rx-queue/images/debounce.png)
-> From: [ReactiveX Observable Debounce](http://reactivex.io/documentation/operators/debounce.html)
+> Picture Credit: [ReactiveX Observable Debounce](http://reactivex.io/documentation/operators/debounce.html)
 
 
 **Example:**
@@ -121,8 +121,8 @@ debounce.next(3)
 
 ## DelayQueueExector
 
-![DelayQueueExector]()
-> From[]()
+![DelayQueueExector](https://zixia.github.io/rx-queue/images/delay.png)
+> Picture Credit: [ReactiveX Single Operator Delay](http://reactivex.io/documentation/single.html)
 
 **Example:**
 ```ts
