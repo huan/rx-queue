@@ -1,6 +1,12 @@
-const { RxQueue } = require('rx-queue')
+const {
+  RxQueue,
+  DelayQueue,
+} = require('rx-queue')
 
-const queue = new RxQueue()
-console.log(`RxQueue v${queue.version()}`)
+const rq = new RxQueue()
+console.log(`RxQueue v${rq.version()}`)
+
+const dq = new DelayQueue()
+console.log(`DelayQueue v${dq.version()}`)
 
 console.log('Smoke Testing PASSED!')
