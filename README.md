@@ -31,10 +31,10 @@ queue.subscribe(console.log)
 
 ## DelayQueue
 
+`DelayQueue` passes all the items and add delays between items.
+
 ![DelayQueue](https://zixia.github.io/rx-queue/images/delay.png)
 > Picture Credit: [ReactiveX Single Operator Delay](http://reactivex.io/documentation/single.html)
-
-`DelayQueue` passes all the items and add delays between items.
 
 **Example:**
 ```ts
@@ -115,6 +115,9 @@ debounce.next(3)
 
 ![DelayQueueExector](https://zixia.github.io/rx-queue/images/delay.png)
 > Picture Credit: [ReactiveX Single Operator Delay](http://reactivex.io/documentation/single.html)
+
+Practical examples of `DelayQueueExector`:
+1. We are calling a HTTP API which can only be called no more than ten times per second, or it will throw a `500` error.
 
 **Example:**
 ```ts
