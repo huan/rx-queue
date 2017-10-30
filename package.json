@@ -1,7 +1,7 @@
 {
   "name": "rx-queue",
   "version": "0.1.5",
-  "description": "Easy to Use Queue based on RxJS for Delay/Throttle/Debounce Edit",
+  "description": "Easy to Use ReactiveX Queue that Supports Delay/DelayExector/Throttle/Debounce Features Powered by RxJS.",
   "main": "bundles/rx-queue.umd.js",
   "types": "dist/index.d.ts",
   "scripts": {

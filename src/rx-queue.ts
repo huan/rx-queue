@@ -13,15 +13,18 @@ import {
   VERSION,
 }         from './config'
 
+// default set to 500 milliseconds
+const DEFAULT_PERIOD_TIME = 500
+
 // https://codepen.io/maindg/pen/xRwGvL
 export class RxQueue<T = any> extends Subject<T> {
   private itemList: T[] = []
 
   constructor(
-    public period = 1000, // milliseconds
+    public period = DEFAULT_PERIOD_TIME,
   ) {
     super()
-    log.verbose('RxQueue', 'constructor(%d)', period)
+    log.verbose('RxQueue', 'constructor(%d milliseconds)', period)
   }
 
   public next(item: T) {
