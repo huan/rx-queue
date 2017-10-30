@@ -7,15 +7,20 @@ import * as sinon from 'sinon'
 
 import RxQueue from './rx-queue'
 
-test('subscribe & next', async function (t) {
-  const EXPECT_ITEM = { test: 'testing123' }
+test('RxQueue subscribe & next', async function (t) {
+  const EXPECTED_ITEM = { test: 'testing123' }
   const spy = sinon.spy()
 
   const q = new RxQueue()
 
   q.subscribe(spy)
-  q.next(EXPECT_ITEM)
+  q.next(EXPECTED_ITEM)
 
   t.ok(spy.calledOnce, 'should received 1 call')
-  t.deepEqual(spy.firstCall.args[0], EXPECT_ITEM, 'should received EXPECTED_ITEM')
+  t.deepEqual(spy.firstCall.args[0], EXPECTED_ITEM, 'should received EXPECTED_ITEM')
+})
+
+test('RxQueue version()', async t => {
+  const q = new RxQueue()
+  t.ok(/^\d+\.\d+\.\d+$/.test(q.version()), 'get version')
 })

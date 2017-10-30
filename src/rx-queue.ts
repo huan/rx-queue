@@ -10,7 +10,8 @@ import {
 
 import {
   log,
-}         from 'brolog'
+  VERSION,
+}         from './config'
 
 // https://codepen.io/maindg/pen/xRwGvL
 export class RxQueue<T = any> extends Subject<T> {
@@ -46,6 +47,10 @@ export class RxQueue<T = any> extends Subject<T> {
     this.itemList.forEach(item => this.next(item))
     this.itemList = []
     return s
+  }
+
+  public version(): string {
+    return VERSION
   }
 }
 
