@@ -42,7 +42,7 @@ test('ThrottleQueue 2 item', async function (t) {
   t.ok(spy.calledOnce, 'should only be called once right after next two items')
   t.deepEqual(spy.firstCall.args[0], EXPECTED_ITEM1, 'should get the first item')
 
-  await new Promise(r => setTimeout(r, THROTTLE_PERIOD_TIME + 1))
+  await new Promise(r => setTimeout(r, THROTTLE_PERIOD_TIME + 3))
   t.ok(spy.calledOnce, 'should drop the second call after period because of throttle')
 })
 
@@ -55,7 +55,7 @@ test('ThrottleQueue 3 items', async function (t) {
   q.next(EXPECTED_ITEM1)
   q.next(EXPECTED_ITEM2)
 
-  await new Promise(r => setTimeout(r, THROTTLE_PERIOD_TIME + 1))
+  await new Promise(r => setTimeout(r, THROTTLE_PERIOD_TIME + 3))
 
   q.next(EXPECTED_ITEM3)
   t.ok(spy.calledTwice, 'should received the third item after THROTTLE_TIME')

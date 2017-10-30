@@ -38,15 +38,15 @@ test('DelayQueueExector execute thrice', async function (t) {
   t.ok(spy.calledOnce, 'should call once immediately')
   t.equal(spy.firstCall.args[0], EXPECTED_VAL1, 'should get EXPECTED_VAL1')
 
-  await new Promise(r => setTimeout(r, DELAY_PERIOD_TIME + 1))
+  await new Promise(r => setTimeout(r, DELAY_PERIOD_TIME + 3))
   t.ok(spy.calledTwice, 'should call twice after DELAY_PERIOD_TIME')
   t.equal(spy.secondCall.args[0], EXPECTED_VAL2, 'should get EXPECTED_VAL2')
 
-  await new Promise(r => setTimeout(r, DELAY_PERIOD_TIME + 1))
+  await new Promise(r => setTimeout(r, DELAY_PERIOD_TIME + 3))
   t.ok(spy.calledThrice, 'should call thrice after 2 x DELAY_PERIOD_TIME')
   t.equal(spy.thirdCall.args[0], EXPECTED_VAL3, 'should get EXPECTED_VAL3')
 
-  await new Promise(r => setTimeout(r, DELAY_PERIOD_TIME + 1))
+  await new Promise(r => setTimeout(r, DELAY_PERIOD_TIME + 3))
   t.ok(spy.calledThrice, 'should keep third call...')
 })
 
