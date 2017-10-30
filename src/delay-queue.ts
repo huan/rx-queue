@@ -20,7 +20,7 @@ export class DelayQueue<T = any> extends RxQueue<T> {
     period?: number, // milliseconds
   ) {
     super(period)
-    log.verbose('DelayQueue', 'constructor(%d)', period)
+    log.verbose('DelayQueue', 'constructor()')
 
     this.subject      = new Subject<T>()
     this.subscription = this.subject
