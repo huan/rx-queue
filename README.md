@@ -145,6 +145,14 @@ delay.execute(() => console.log(1))
 // Output: 3
 ```
 
+CHANGELOG
+---------
+
+### v0.2 - 30 Oct 2017
+1. Support: `DelayQueue`, `ThrottleQueue`, `DebounceQueue`, `DelayQueueExector`.
+1. first version
+
+
 AUTHOR
 ------
 
