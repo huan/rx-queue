@@ -17,7 +17,7 @@ CLASSES
 
 ## RxQueue
 
-`RxQueue` is the base class of all other queues. It extends from RxJS Subject and add support to save values for future subscriptions.
+`RxQueue` is the base class of all other queues. It extends from RxJS Subject.
 
 **Example:**
 ```ts
@@ -40,6 +40,10 @@ queue.subscribe(console.log)
 
 ![DelayQueue](https://zixia.github.io/rx-queue/images/delay.png)
 > Picture Credit: [ReactiveX Single Operator Delay](http://reactivex.io/documentation/single.html)
+
+Practical examples of `DelayQueue`:
+
+1. We are calling a HTTP API which can only be called no more than ten times per second, or it will throw a `500` error.
 
 **Example:**
 ```ts
@@ -96,7 +100,7 @@ The Debounce technique allow us to deal with multiple sequential items in a time
 
 Debouncing enforces that no more items will be passed again until a certain amount of time has passed without any new items coming.
 
-Practical examples of debouncing:
+Practical examples of `DebounceQueue`:
 1. User is typing text in a search box. We want to make an auto-complete function call only after the user stop typing for 500 milliseconds.
 
 **Example:**
