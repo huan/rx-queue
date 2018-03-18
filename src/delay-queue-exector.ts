@@ -1,6 +1,3 @@
-import {
-  log,
-}                 from './config'
 import DelayQueue from './delay-queue'
 
 interface ExecutionUnit<T = any> {
@@ -14,7 +11,6 @@ export class DelayQueueExector extends DelayQueue {
     period: number,
   ) {
     super(period)
-    log.verbose('DelayQueueExector', 'constructor()')
 
     this.subscribe(unit => {
       try {
@@ -27,7 +23,6 @@ export class DelayQueueExector extends DelayQueue {
   }
 
   public async execute<T = any>(fn: () => T): Promise<T> {
-    log.verbose('DelayQueueExector', 'execute()')
     return new Promise<T>((resolve, reject) => {
       const unit: ExecutionUnit<T> = {
         fn,
