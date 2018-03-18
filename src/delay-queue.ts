@@ -7,9 +7,6 @@ import 'rxjs/add/operator/concatMap'
 import 'rxjs/add/operator/concat'
 import 'rxjs/add/operator/delay'
 
-import {
-  log,
-}               from './config'
 import RxQueue  from './rx-queue'
 
 export class DelayQueue<T = any> extends RxQueue<T> {
@@ -20,8 +17,7 @@ export class DelayQueue<T = any> extends RxQueue<T> {
     period?: number, // milliseconds
   ) {
     super(period)
-    log.verbose('DelayQueue', 'constructor()')
-
+ 
     this.subject      = new Subject<T>()
     this.subscription = this.subject
       .concatMap(args => {
@@ -32,7 +28,6 @@ export class DelayQueue<T = any> extends RxQueue<T> {
   }
 
   public next(item: T) {
-    log.verbose('DelayQueue', 'next()')
     this.subject.next(item)
   }
 
