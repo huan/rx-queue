@@ -45,7 +45,6 @@
     "@types/node": "^8.0.44",
     "@types/sinon": "^2.3.6",
     "blue-tape": "^1.0.0",
-    "brolog": "^1.2",
     "rollup": "^0.50.0",
     "rollup-plugin-json": "^2.3.0",
     "rxjs": "^5.5",
