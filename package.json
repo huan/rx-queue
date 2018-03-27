@@ -1,6 +1,6 @@
 {
   "name": "rx-queue",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "Easy to Use ReactiveX Queue that Supports Delay/DelayExector/Throttle/Debounce Features Powered by RxJS.",
   "main": "bundles/rx-queue.umd.js",
   "types": "dist/index.d.ts",
