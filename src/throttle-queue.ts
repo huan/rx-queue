@@ -13,8 +13,8 @@ export class ThrottleQueue<T = any> extends RxQueue<T> {
   constructor(
     period?: number, // milliseconds
   ) {
-    super(period)
-   
+    super(period);
+
     this.subject      = new Subject<T>()
     this.subscription = this.subject
       .throttle(_ => Observable.interval(this.period))
