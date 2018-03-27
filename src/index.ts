@@ -1,4 +1,3 @@
-export { log }                from './config'
 export { DebounceQueue }      from './debounce-queue'
 export { DelayQueue }         from './delay-queue'
 export { DelayQueueExector }  from './delay-queue-exector'
