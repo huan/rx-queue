@@ -145,6 +145,10 @@ delay.execute(() => console.log(1))
 // Output: 3
 ```
 
+# SEE ALSO
+
+* [Writing Marble Tests](https://github.com/ReactiveX/rxjs/blob/master/doc/writing-marble-tests.md)
+
 # CHANGELOG
 
 ### v0.2 - Oct 30, 2017

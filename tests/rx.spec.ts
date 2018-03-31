@@ -3,6 +3,9 @@
 import * as test  from 'blue-tape'
 import * as Rx    from 'rxjs/Rx'
 
+/**
+ * See: https://github.com/ReactiveX/rxjs/blob/master/doc/writing-marble-tests.md
+ */
 test('marble smoke testing', async t => {
 
   function timeRange(
