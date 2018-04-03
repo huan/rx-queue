@@ -5,6 +5,7 @@ import * as Rx    from 'rxjs/Rx'
 
 /**
  * See: https://github.com/ReactiveX/rxjs/blob/master/doc/writing-marble-tests.md
+ * See Also: https://github.com/ohjames/rxjs-websockets/blob/master/src/index.spec.ts
  */
 test('marble smoke testing', async t => {
 
