@@ -1,5 +1,7 @@
 RX-QUEUE
 --------
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/zixia/rx-queue.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/zixia/rx-queue.svg?branch=master)](https://travis-ci.org/zixia/rx-queue) [![Windows Build status](https://img.shields.io/appveyor/ci/zixia/rx-queue/master.svg?label=Windows)](https://ci.appveyor.com/project/zixia/rx-queue) [![NPM Version](https://badge.fury.io/js/rx-queue.svg)](https://badge.fury.io/js/rx-queue) [![Downloads](http://img.shields.io/npm/dm/rx-queue.svg?style=flat-square)](https://npmjs.org/package/rx-queue) [![Powered by TypeScript](https://img.shields.io/badge/Powered%20By-TypeScript-blue.svg)](https://www.typescriptlang.org/) 
 
 Easy to Use ReactiveX Queue that Supports Delay/DelayExector/Throttle/Debounce Features Powered by RxJS.
