@@ -7,11 +7,6 @@ import * as sinon from 'sinon'
 
 import DelayQueue from './delay-queue'
 
-// import {
-//   log,
-// }         from './config'
-// log.level('silly')
-
 const EXPECTED_ITEM1 = { test: 'testing123' }
 const EXPECTED_ITEM2 = { mol: 42 }
 const EXPECTED_ITEM3 = 42

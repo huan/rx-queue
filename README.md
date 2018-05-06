@@ -145,16 +145,18 @@ delay.execute(() => console.log(1))
 // Output: 3
 ```
 
-CHANGELOG
----------
+# SEE ALSO
 
-### v0.2 - 30 Oct 2017
+* [Writing Marble Tests](https://github.com/ReactiveX/rxjs/blob/master/doc/writing-marble-tests.md)
+
+# CHANGELOG
+
+### v0.2 - Oct 30, 2017
 1. Support: `DelayQueue`, `ThrottleQueue`, `DebounceQueue`, `DelayQueueExector`.
 1. first version
 
 
-AUTHOR
-------
+# AUTHOR
 
 Huan LI \<zixia@zixia.net\> (http://linkedin.com/in/zixia)
 
@@ -162,11 +164,8 @@ Huan LI \<zixia@zixia.net\> (http://linkedin.com/in/zixia)
   <img src="http://stackoverflow.com/users/flair/1123955.png" width="208" height="58" alt="profile for zixia at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for zixia at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
 </a>
 
-COPYRIGHT & LICENSE
--------------------
+# COPYRIGHT & LICENSE
 
-* Code & Docs © 2017 Huan LI \<zixia@zixia.net\>
+* Code & Docs © 2017-2018 Huan LI \<zixia@zixia.net\>
 * Code released under the Apache-2.0 License
 * Docs released under Creative Commons
-
-

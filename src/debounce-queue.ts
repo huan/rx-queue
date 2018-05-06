@@ -7,9 +7,6 @@ import {
   debounce,
 }                 from 'rxjs/operators'
 
-import {
-  log,
-}               from './config'
 import RxQueue  from './rx-queue'
 
 export class DebounceQueue<T = any> extends RxQueue<T> {
@@ -20,7 +17,6 @@ export class DebounceQueue<T = any> extends RxQueue<T> {
     period?: number, // milliseconds
   ) {
     super(period)
-    log.verbose('DebounceQueue', 'constructor()')
 
     this.subject      = new Subject<T>()
     this.subscription = this.subject.pipe(
@@ -30,7 +26,6 @@ export class DebounceQueue<T = any> extends RxQueue<T> {
   }
 
   public next(item: T) {
-    log.verbose('DebounceQueue', 'next()')
     this.subject.next(item)
   }
 

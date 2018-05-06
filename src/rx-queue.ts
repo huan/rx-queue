@@ -5,7 +5,6 @@ import {
 }                   from 'rxjs'
 
 import {
-  log,
   VERSION,
 }         from './config'
 
@@ -20,16 +19,13 @@ export class RxQueue<T = any> extends Subject<T> {
     public period = DEFAULT_PERIOD_TIME,
   ) {
     super()
-    log.verbose('RxQueue', 'constructor(%d milliseconds)', period)
   }
 
   public next(item: T) {
-    log.verbose('RxQueue', 'next()')
     if (this.observers.length > 0) {
       super.next(item)
     } else {
       this.itemList.push(item)
-      log.verbose('RxQueue', 'next() itemList length: %s', this.itemList.length)
     }
   }
 
@@ -43,7 +39,6 @@ export class RxQueue<T = any> extends Subject<T> {
     error?:         (error: any) => void,
     complete?:      () => void,
   ) {
-    log.verbose('RxQueue', 'subscribe()')
     let s: Subscription // TypeScript bug
     if (typeof nextOrObserver === 'function') {
       s = super.subscribe(nextOrObserver, error, complete)
