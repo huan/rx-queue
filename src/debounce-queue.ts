@@ -2,7 +2,7 @@ import {
   Subject,
   Subscription,
   interval,
-}                 from 'rxjs/'
+}                 from 'rxjs'
 import {
   debounce,
 }                 from 'rxjs/operators'

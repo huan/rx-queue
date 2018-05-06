@@ -4,7 +4,7 @@ import {
   of,
   empty,
   concat,
-}                 from 'rxjs/'
+}                 from 'rxjs'
 import {
   concatMap,
   delay,

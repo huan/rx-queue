@@ -1,21 +1,21 @@
-RX-QUEUE
---------
-[![Build Status](https://travis-ci.org/zixia/rx-queue.svg?branch=master)](https://travis-ci.org/zixia/rx-queue) [![Windows Build status](https://img.shields.io/appveyor/ci/zixia/rx-queue/master.svg?label=Windows)](https://ci.appveyor.com/project/zixia/rx-queue) [![NPM Version](https://badge.fury.io/js/rx-queue.svg)](https://badge.fury.io/js/rx-queue) [![Downloads](http://img.shields.io/npm/dm/rx-queue.svg?style=flat-square)](https://npmjs.org/package/rx-queue) [![Powered by TypeScript](https://img.shields.io/badge/Powered%20By-TypeScript-blue.svg)](https://www.typescriptlang.org/) 
+# RX-QUEUE
+
+[![Build Status](https://travis-ci.com/zixia/rx-queue.svg?branch=master)](https://travis-ci.com/zixia/rx-queue) [![Windows Build status](https://img.shields.io/appveyor/ci/zixia/rx-queue/master.svg?label=Windows)](https://ci.appveyor.com/project/zixia/rx-queue) [![NPM Version](https://badge.fury.io/js/rx-queue.svg)](https://badge.fury.io/js/rx-queue) [![Downloads](http://img.shields.io/npm/dm/rx-queue.svg?style=flat-square)](https://npmjs.org/package/rx-queue) [![Powered by TypeScript](https://img.shields.io/badge/Powered%20By-TypeScript-blue.svg)](https://www.typescriptlang.org/) 
 
 Easy to Use ReactiveX Queue that Supports Delay/DelayExector/Throttle/Debounce Features Powered by RxJS.
 
 ![RxQueue](https://zixia.github.io/rx-queue/images/queue.png)
 > Picture Credit: [Queues in JavaScript](https://www.kirupa.com/html5/queues_in_javascript.htm)
 
-CLASSES
--------
+## CLASSES
+
 1. <a href='#rxqueue'>RxQueue</a>
 1. <a href='#delayqueue'>DelayQueue</a>
 1. <a href='#throttlequeue'>ThrottleQueue</a>
 1. <a href='#debouncequeue'>DebounceQueue</a>
 1. <a href='#delayqueueexector'>DelayQueueExector</a>
 
-## RxQueue
+### RxQueue
 
 `RxQueue` is the base class of all other queues. It extends from RxJS Subject.
 
@@ -34,7 +34,7 @@ queue.subscribe(console.log)
 // Output: 3
 ```
 
-## DelayQueue
+### DelayQueue
 
 `DelayQueue` passes all the items and add delays between items.
 
@@ -63,7 +63,7 @@ delay.next(3)
 // Output: 3
 ```
 
-## ThrottleQueue
+### ThrottleQueue
 
 `ThrottleQueue` passes one item and then drop all the following items in a period of time.
 
@@ -89,7 +89,7 @@ throttle.next(3)
 // Output: 1
 ```
 
-## DebounceQueue
+### DebounceQueue
 
 `DebounceQueue` drops a item if there's another one comes in a period of time.
 
@@ -118,7 +118,7 @@ debounce.next(3)
 // Output: 3
 ```
 
-## DelayQueueExector
+### DelayQueueExector
 
 `DelayQueueExector` calls functions one by one with a delay time period between calls.
 
@@ -145,18 +145,24 @@ delay.execute(() => console.log(1))
 // Output: 3
 ```
 
-# SEE ALSO
+## SEE ALSO
 
 * [Writing Marble Tests](https://github.com/ReactiveX/rxjs/blob/master/doc/writing-marble-tests.md)
 
-# CHANGELOG
+## CHANGELOG
+
+### v0.4 - May 2018
+
+1. Upgrade to RxJS 6
+1. Moved CI from Travis-ci.org  to Travis-ci.com
 
 ### v0.2 - Oct 30, 2017
+
 1. Support: `DelayQueue`, `ThrottleQueue`, `DebounceQueue`, `DelayQueueExector`.
 1. first version
 
 
-# AUTHOR
+## AUTHOR
 
 Huan LI \<zixia@zixia.net\> (http://linkedin.com/in/zixia)
 
@@ -164,7 +170,7 @@ Huan LI \<zixia@zixia.net\> (http://linkedin.com/in/zixia)
   <img src="http://stackoverflow.com/users/flair/1123955.png" width="208" height="58" alt="profile for zixia at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for zixia at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
 </a>
 
-# COPYRIGHT & LICENSE
+## COPYRIGHT & LICENSE
 
 * Code & Docs © 2017-2018 Huan LI \<zixia@zixia.net\>
 * Code released under the Apache-2.0 License
