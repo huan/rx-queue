@@ -1,8 +1,11 @@
-import { Observable }   from 'rxjs/Observable'
-import { Subject }      from 'rxjs/Subject'
-import { Subscription } from 'rxjs/Subscription'
-import 'rxjs/add/operator/debounce'
-import 'rxjs/add/observable/interval'
+import {
+  Subject,
+  Subscription,
+  interval,
+}                 from 'rxjs/'
+import {
+  debounce,
+}                 from 'rxjs/operators'
 
 import {
   log,
@@ -20,9 +23,10 @@ export class DebounceQueue<T = any> extends RxQueue<T> {
     log.verbose('DebounceQueue', 'constructor()')
 
     this.subject      = new Subject<T>()
-    this.subscription = this.subject
-      .debounce(() => Observable.interval(this.period))
-      .subscribe((item: T) => super.next(item))
+    this.subscription = this.subject.pipe(
+      debounce(() => interval(this.period)),
+    )
+    .subscribe((item: T) => super.next(item))
   }
 
   public next(item: T) {

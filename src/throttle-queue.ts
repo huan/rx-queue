@@ -1,8 +1,11 @@
-import { Observable }   from 'rxjs/Observable'
-import { Subject }      from 'rxjs/Subject'
-import { Subscription } from 'rxjs/Subscription'
-import 'rxjs/add/observable/interval'
-import 'rxjs/add/operator/throttle'
+import {
+  Subject,
+  Subscription,
+  interval,
+}                 from 'rxjs/'
+import {
+  throttle,
+}                 from 'rxjs/operators'
 
 import {
   log,
@@ -20,9 +23,9 @@ export class ThrottleQueue<T = any> extends RxQueue<T> {
     log.verbose('ThrottleQueue', 'constructor()')
 
     this.subject      = new Subject<T>()
-    this.subscription = this.subject
-      .throttle(_ => Observable.interval(this.period))
-      .subscribe((item: T) => super.next(item))
+    this.subscription = this.subject.pipe(
+      throttle(_ => interval(this.period)),
+    ).subscribe((item: T) => super.next(item))
   }
 
   public next(item: T) {

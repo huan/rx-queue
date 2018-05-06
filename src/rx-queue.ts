@@ -1,12 +1,8 @@
 import {
   Subject,
-}                   from 'rxjs/Subject'
-import {
   Subscription,
-}                   from 'rxjs/Subscription'
-import {
   PartialObserver,
-}                   from 'rxjs/Observer'
+}                   from 'rxjs'
 
 import {
   log,

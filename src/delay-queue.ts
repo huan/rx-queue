@@ -1,11 +1,14 @@
-import { Observable }   from 'rxjs/Observable'
-import { Subject }      from 'rxjs/Subject'
-import { Subscription } from 'rxjs/Subscription'
-import 'rxjs/add/observable/of'
-import 'rxjs/add/observable/empty'
-import 'rxjs/add/operator/concatMap'
-import 'rxjs/add/operator/concat'
-import 'rxjs/add/operator/delay'
+import {
+  Subject,
+  Subscription,
+  of,
+  empty,
+  concat,
+}                 from 'rxjs/'
+import {
+  concatMap,
+  delay,
+}                 from 'rxjs/operators'
 
 import {
   log,
@@ -23,12 +26,12 @@ export class DelayQueue<T = any> extends RxQueue<T> {
     log.verbose('DelayQueue', 'constructor()')
 
     this.subject      = new Subject<T>()
-    this.subscription = this.subject
-      .concatMap(args => {
-        return Observable.of(args) // emit first item right away
-              .concat(Observable.empty().delay(this.period)) // delay next item
-      })
-      .subscribe((item: T) => super.next(item))
+    this.subscription = this.subject.pipe(
+      concatMap(args => concat(
+        of(args),                           // emit first item right away
+        empty().pipe(delay(this.period)),   // delay next item
+      )),
+    ).subscribe((item: T) => super.next(item))
   }
 
   public next(item: T) {
