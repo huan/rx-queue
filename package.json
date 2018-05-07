@@ -14,7 +14,7 @@
     "lint:ts": "npm run clean && echo tslint v`tslint --version` && tslint --project tsconfig.json \"{bin,examples,src,tests}/**/*.ts\" --exclude \"tests/fixtures/\" --exclude \"dist/\" && tsc --noEmit",
     "test": "npm run lint && npm run test:unit",
     "test:unit": "blue-tape -r ts-node/register \"src/**/*.spec.ts\" \"tests/**/*.spec.ts\"",
-    "test:pack": "bash scripts/npm-pack-testing.sh"
+    "test:pack": "bash -x scripts/npm-pack-testing.sh"
   },
   "repository": {
     "type": "git",
