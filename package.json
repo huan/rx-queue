@@ -3,7 +3,7 @@
   "version": "0.4.1",
   "description": "Easy to Use ReactiveX Queue that Supports Delay/DelayExector/Throttle/Debounce Features Powered by RxJS.",
   "main": "bundles/rx-queue.umd.js",
-  "types": "dist/index.d.ts",
+  "typings": "dist/src/index.d.ts",
   "scripts": {
     "clean": "rm -fr dist/* bundles/*",
     "dist": "npm run clean && npm run build && npm run rollup && npm run dist:es6to5",
