@@ -18,16 +18,15 @@ stages:
     if: branch =~ ^(master|v\d+\.\d+)$
         AND (type NOT IN (cron, pull_request))
 
+script:
+  - echo $TRAVIS_OS_NAME
+  - node --version
+  - npm --version
+  - echo "Testing started ..."
+  - npm test || travis_terminate 1
+
 jobs:
   include:
-    - stage: test
-      script:
-        - echo $TRAVIS_OS_NAME
-        - node --version
-        - npm --version
-        - echo "Testing started ..."
-        - npm test || travis_terminate 1
-
     - stage: pack
       script:
         - npm run test:pack && echo 'Npm pack testing is passed' || travis_terminate 1
