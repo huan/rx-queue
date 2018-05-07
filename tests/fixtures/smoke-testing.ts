@@ -1,8 +1,8 @@
-const {
+import {
   DelayQueue,
   RxQueue,
   ThrottleQueue,
-} = require('rx-queue')
+}                 from 'rx-queue'
 
 const rq = new RxQueue()
 console.log(`RxQueue v${rq.version()}`)

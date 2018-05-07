@@ -32,8 +32,9 @@
     , "tests/**/*.ts"
   ]
   , "exclude": [
-      "dist"
-    , "node_modules"
+      "dist/"
+    , "node_modules/"
+    , "tests/fixtures/"
   ]
   , "compileOnSave": false
   , "atom": {
