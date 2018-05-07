@@ -37,8 +37,8 @@
   },
   "homepage": "https://github.com/zixia/rx-queue#readme",
   "peerDependencies": {
-    "brolog": "^1",
-    "rxjs": "^6"
+    "brolog": "^1.4.9",
+    "rxjs": "^6.1.0"
   },
   "devDependencies": {
     "@types/blue-tape": "^0.1.31",
