@@ -21,6 +21,7 @@ npm install *-*.*.*.tgz \
   --lib esnext,dom \
   --noEmitOnError \
   --noImplicitAny \
+  --skipLibCheck \
   smoke-testing.ts
 
 node smoke-testing.js
