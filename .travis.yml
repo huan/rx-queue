@@ -4,7 +4,6 @@ os:
 
 language: node_js
 node_js:
-  - '9'
   - '10'
 
 cache:
@@ -17,19 +16,20 @@ stages:
   - name: deploy
     if: branch =~ ^(master|v\d+\.\d+)$ AND (type NOT IN (cron, pull_request))
 
+script:
+  - echo $TRAVIS_OS_NAME
+  - node --version
+  - npm --version
+  - echo "Testing Started ..."
+  - npm test
+  - echo "Testing Finished."
+
 jobs:
   include:
-    - stage: test
-      script:
-        - echo $TRAVIS_OS_NAME
-        - node --version
-        - npm --version
-        - echo "Testing started ..."
-        - npm test || travis_terminate 1
 
     - stage: pack
       script:
-        - npm run test:pack && echo 'Npm pack testing is passed' || travis_terminate 1
+        - npm run test:pack && echo 'NPM Pack Testing Passed.'
 
     - stage: deploy
       script:
