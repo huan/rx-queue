@@ -1,6 +1,4 @@
-=======
-RX-QUEUE
---------
+# RX-QUEUE
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/zixia/rx-queue.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.com/zixia/rx-queue.svg?branch=master)](https://travis-ci.com/zixia/rx-queue) [![Windows Build status](https://img.shields.io/appveyor/ci/zixia/rx-queue/master.svg?label=Windows)](https://ci.appveyor.com/project/zixia/rx-queue) [![NPM Version](https://badge.fury.io/js/rx-queue.svg)](https://badge.fury.io/js/rx-queue) [![Downloads](http://img.shields.io/npm/dm/rx-queue.svg?style=flat-square)](https://npmjs.org/package/rx-queue) [![Powered by TypeScript](https://img.shields.io/badge/Powered%20By-TypeScript-blue.svg)](https://www.typescriptlang.org/) 
@@ -23,6 +21,7 @@ Easy to Use ReactiveX Queue that Supports Delay/DelayExector/Throttle/Debounce F
 `RxQueue` is the base class of all other queues. It extends from RxJS Subject.
 
 **Example:**
+
 ```ts
 import { RxQueue } from 'rx-queue'
 
@@ -49,6 +48,7 @@ Practical examples of `DelayQueue`:
 1. We are calling a HTTP API which can only be called no more than ten times per second, or it will throw a `500` error.
 
 **Example:**
+
 ```ts
 import { DelayQueue } from 'rx-queue'
 
@@ -79,6 +79,7 @@ Practical examples of `ThrottleQueue`:
 1. User is typing text in a textarea. We want to call auto-save function when user is typing, and want it only run at most once every five minutes.
 
 **Example:**
+
 ```ts
 import { ThrottleQueue } from 'rx-queue'
 
@@ -107,6 +108,7 @@ Practical examples of `DebounceQueue`:
 1. User is typing text in a search box. We want to make an auto-complete function call only after the user stop typing for 500 milliseconds.
 
 **Example:**
+
 ```ts
 import { DebounceQueue } from 'rx-queue'
 
@@ -129,9 +131,11 @@ debounce.next(3)
 > Picture Credit: [ReactiveX Single Operator Delay](http://reactivex.io/documentation/single.html)
 
 Practical examples of `DelayQueueExector`:
+
 1. We are calling a HTTP API which can only be called no more than ten times per second, or it will throw a `500` error.
 
 **Example:**
+
 ```ts
 import { DelayuQueueExector } from 'rx-queue'
 
@@ -163,7 +167,6 @@ delay.execute(() => console.log(1))
 
 1. Support: `DelayQueue`, `ThrottleQueue`, `DebounceQueue`, `DelayQueueExector`.
 1. first version
-
 
 ## AUTHOR
 
