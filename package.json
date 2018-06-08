@@ -52,7 +52,7 @@
     "rollup-plugin-json": "^3.0.0",
     "rxjs": "^6.1.0",
     "semver": "^5.5.0",
-    "shx": "^0.2.2",
+    "shx": "^0.3.0",
     "sinon": "^5.0.4",
     "sinon-test": "^2.1.1",
     "source-map-support": "^0.5.0",
