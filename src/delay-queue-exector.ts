@@ -6,7 +6,14 @@ interface ExecutionUnit<T = any> {
   reject:   (reason?: any) => void,
 }
 
+/**
+ * DelayQueueExector calls functions one by one with a delay time period between calls.
+ */
 export class DelayQueueExector extends DelayQueue {
+  /**
+   *
+   * @param period milliseconds
+   */
   constructor(
     period: number,
   ) {
