@@ -9,10 +9,21 @@ import {
 
 import RxQueue  from './rx-queue'
 
+/**
+ * ThrottleQueue
+ *
+ * passes one item and then drop all the following items in a period of time.
+ *
+ * T: item type
+ */
 export class ThrottleQueue<T = any> extends RxQueue<T> {
   private subscription : Subscription
   private subject      : Subject<T>
 
+  /**
+   *
+   * @param period milliseconds
+   */
   constructor(
     period?: number, // milliseconds
   ) {

@@ -39,15 +39,15 @@ export class RxQueue<T = any> extends Subject<T> {
     error?:         (error: any) => void,
     complete?:      () => void,
   ) {
-    let s: Subscription // TypeScript bug
+    let subscription: Subscription // TypeScript strict require strong typing differenciation
     if (typeof nextOrObserver === 'function') {
-      s = super.subscribe(nextOrObserver, error, complete)
+      subscription = super.subscribe(nextOrObserver, error, complete)
     } else {
-      s = super.subscribe(nextOrObserver)
+      subscription = super.subscribe(nextOrObserver)
     }
     this.itemList.forEach(item => this.next(item))
     this.itemList = []
-    return s
+    return subscription
   }
 
   public version(): string {
