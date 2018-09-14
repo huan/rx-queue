@@ -19,8 +19,3 @@ test('RxQueue subscribe & next', async function (t) {
   t.ok(spy.calledOnce, 'should received 1 call')
   t.deepEqual(spy.firstCall.args[0], EXPECTED_ITEM, 'should received EXPECTED_ITEM')
 })
-
-test('RxQueue version()', async t => {
-  const q = new RxQueue()
-  t.ok(/^\d+\.\d+\.\d+$/.test(q.version()), 'get version')
-})
