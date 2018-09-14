@@ -45,6 +45,10 @@ export class RxQueue<T = any> extends Subject<T> {
     this.itemList = []
     return subscription
   }
+
+  public version(): string {
+    return '0.4.31'
+  }
 }
 
 export default RxQueue
