@@ -1,8 +1,8 @@
 #!/usr/bin/env ts-node
 
 // tslint:disable:no-shadowed-variable
-import * as test  from 'blue-tape'
-import * as sinon from 'sinon'
+import test  from 'blue-tape'
+import sinon from 'sinon'
 
 import ThrottleQueue from './throttle-queue'
 
@@ -12,7 +12,7 @@ const EXPECTED_ITEM3 = 42
 
 const THROTTLE_PERIOD_TIME = 10 // milliseconds
 
-test('ThrottleQueue 1 item', async function (t) {
+test('ThrottleQueue 1 item', async t => {
   const q   = new ThrottleQueue(THROTTLE_PERIOD_TIME)
 
   const spy = sinon.spy()
@@ -24,7 +24,7 @@ test('ThrottleQueue 1 item', async function (t) {
   t.deepEqual(spy.firstCall.args[0], EXPECTED_ITEM1, 'should get the first item immediately')
 })
 
-test('ThrottleQueue 2 item', async function (t) {
+test('ThrottleQueue 2 item', async t => {
   const q = new ThrottleQueue(THROTTLE_PERIOD_TIME)
 
   const spy = sinon.spy()
@@ -40,7 +40,7 @@ test('ThrottleQueue 2 item', async function (t) {
   t.ok(spy.calledOnce, 'should drop the second call after period because of throttle')
 })
 
-test('ThrottleQueue 3 items', async function (t) {
+test('ThrottleQueue 3 items', async t => {
   const q = new ThrottleQueue(THROTTLE_PERIOD_TIME)
 
   const spy = sinon.spy()

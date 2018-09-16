@@ -1,12 +1,12 @@
 #!/usr/bin/env ts-node
 
 // tslint:disable:no-shadowed-variable
-import * as test  from 'blue-tape'
-import * as sinon from 'sinon'
+import test  from 'blue-tape'
+import sinon from 'sinon'
 
 import RxQueue from './rx-queue'
 
-test('RxQueue subscribe & next', async function (t) {
+test('RxQueue subscribe & next', async t => {
   const EXPECTED_ITEM = { test: 'testing123' }
   const spy = sinon.spy()
 

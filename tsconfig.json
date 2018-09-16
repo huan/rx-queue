@@ -13,6 +13,8 @@
     , "noImplicitAny": true
     , "noImplicitThis": true
     , "noUnusedParameters": true
+    , "resolveJsonModule": true
+    , "esModuleInterop": true
 
     , "traceResolution": false
 

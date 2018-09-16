@@ -1,8 +1,8 @@
 #!/usr/bin/env ts-node
 
 // tslint:disable:no-shadowed-variable
-import * as test  from 'blue-tape'
-import * as sinon from 'sinon'
+import test  from 'blue-tape'
+import sinon from 'sinon'
 
 import DelayQueue from './delay-queue'
 
@@ -12,7 +12,7 @@ const EXPECTED_ITEM3 = 42
 
 const DELAY_PERIOD_TIME = 10 // milliseconds
 
-test('DelayQueue 1 item', async function (t) {
+test('DelayQueue 1 item', async t => {
   const q   = new DelayQueue(DELAY_PERIOD_TIME)
 
   const spy = sinon.spy()
@@ -24,7 +24,7 @@ test('DelayQueue 1 item', async function (t) {
   t.deepEqual(spy.firstCall.args[0], EXPECTED_ITEM1, 'should get the first item immediately')
 })
 
-test('DelayQueue 2 item', async function (t) {
+test('DelayQueue 2 item', async t => {
   const q = new DelayQueue(DELAY_PERIOD_TIME)
 
   const spy = sinon.spy()
@@ -40,7 +40,7 @@ test('DelayQueue 2 item', async function (t) {
   t.ok(spy.calledTwice, 'should get the second item after period delay')
 })
 
-test('DelayQueue 3 items', async function (t) {
+test('DelayQueue 3 items', async t => {
   const q = new DelayQueue(DELAY_PERIOD_TIME)
 
   const spy = sinon.spy()

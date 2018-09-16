@@ -1,5 +1,5 @@
+import { Subscription } from 'rxjs'
 import DelayQueue from './delay-queue'
-import { Subscription } from 'rxjs';
 
 export interface ExecutionUnit<T = any> {
   fn      : () => T,
@@ -18,7 +18,7 @@ export class DelayQueueExector<T = any> extends DelayQueue<ExecutionUnit<T>> {
    *
    * @param period milliseconds
    */
-  constructor(
+  constructor (
     period: number,
   ) {
     super(period)
@@ -33,7 +33,7 @@ export class DelayQueueExector<T = any> extends DelayQueue<ExecutionUnit<T>> {
     })
   }
 
-  public async execute(
+  public async execute (
     fn: () => T,
     name?: string,
   ): Promise<T> {
@@ -41,14 +41,14 @@ export class DelayQueueExector<T = any> extends DelayQueue<ExecutionUnit<T>> {
       const unit: ExecutionUnit<T> = {
         fn,
         name: name || fn.name,
-        resolve,
         reject,
+        resolve,
       }
       this.next(unit)
     })
   }
 
-  public unsubscribe() {
+  public unsubscribe () {
     this.delayQueueSubscription.unsubscribe()
     super.unsubscribe()
   }
