@@ -4,10 +4,6 @@ import {
   PartialObserver,
 }                   from 'rxjs'
 
-import {
-  VERSION,
-}         from './config'
-
 // default set to 500 milliseconds
 const DEFAULT_PERIOD_TIME = 500
 
@@ -51,7 +47,7 @@ export class RxQueue<T = any> extends Subject<T> {
   }
 
   public version(): string {
-    return VERSION
+    return '0.4.31'
   }
 }
 
