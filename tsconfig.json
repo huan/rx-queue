@@ -19,8 +19,7 @@
     , "outDir": "dist"
 
     , "lib": [
-        "dom"
-      , "esnext"
+      "esnext"
     ]
     , "target": "es6"
     , "module": "commonjs"
@@ -37,7 +36,4 @@
     , "tests/fixtures/"
   ]
   , "compileOnSave": false
-  , "atom": {
-    "rewriteTsconfig": false
-  }
 }
