@@ -142,8 +142,8 @@ import { DelayuQueueExector } from 'rx-queue'
 const delay = new DelayuQueueExector(500)  // set delay period time to 500 milliseconds
 
 delay.execute(() => console.log(1))
-delay.execute(() => console.log(1))
-delay.execute(() => console.log(1))
+delay.execute(() => console.log(2))
+delay.execute(() => console.log(3))
 
 // Output: 1
 // Paused 500 millisecond...
@@ -157,6 +157,10 @@ delay.execute(() => console.log(1))
 * [Writing Marble Tests](https://github.com/ReactiveX/rxjs/blob/master/doc/writing-marble-tests.md)
 
 ## CHANGELOG
+
+### v0.6 - Sep 2018
+
+1. fix exception bug in browser(ie. Angular)
 
 ### v0.4 - May 2018
 
