@@ -13,14 +13,15 @@
     , "noImplicitAny": true
     , "noImplicitThis": true
     , "noUnusedParameters": true
+    , "resolveJsonModule": true
+    , "esModuleInterop": true
 
     , "traceResolution": false
 
     , "outDir": "dist"
 
     , "lib": [
-        "dom"
-      , "esnext"
+      "esnext"
     ]
     , "target": "es6"
     , "module": "commonjs"
@@ -37,7 +38,4 @@
     , "tests/fixtures/"
   ]
   , "compileOnSave": false
-  , "atom": {
-    "rewriteTsconfig": false
-  }
 }

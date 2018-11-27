@@ -1,7 +1,7 @@
 import {
+  interval,
   Subject,
   Subscription,
-  interval,
 }                 from 'rxjs'
 import {
   throttle,
@@ -24,10 +24,10 @@ export class ThrottleQueue<T = any> extends RxQueue<T> {
    *
    * @param period milliseconds
    */
-  constructor(
+  constructor (
     period?: number, // milliseconds
   ) {
-    super(period);
+    super(period)
 
     this.subject      = new Subject<T>()
     this.subscription = this.subject.pipe(
@@ -35,11 +35,11 @@ export class ThrottleQueue<T = any> extends RxQueue<T> {
     ).subscribe((item: T) => super.next(item))
   }
 
-  public next(item: T) {
+  public next (item: T) {
     this.subject.next(item)
   }
 
-  public unsubscribe() {
+  public unsubscribe () {
     this.subscription.unsubscribe()
     super.unsubscribe()
   }

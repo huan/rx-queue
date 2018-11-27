@@ -1,7 +1,7 @@
 import {
+  PartialObserver,
   Subject,
   Subscription,
-  PartialObserver,
 }                   from 'rxjs'
 
 import {
@@ -15,13 +15,13 @@ const DEFAULT_PERIOD_TIME = 500
 export class RxQueue<T = any> extends Subject<T> {
   private itemList: T[] = []
 
-  constructor(
+  constructor (
     public period = DEFAULT_PERIOD_TIME,
   ) {
     super()
   }
 
-  public next(item: T) {
+  public next (item: T) {
     if (this.observers.length > 0) {
       super.next(item)
     } else {
@@ -29,12 +29,12 @@ export class RxQueue<T = any> extends Subject<T> {
     }
   }
 
-  public subscribe(observer: PartialObserver<T>)                                                  : Subscription
-  public subscribe(next: (value: T) => void, error?: (error: any) => void, complete?: () => void) : Subscription
+  public subscribe (observer: PartialObserver<T>)                                                  : Subscription
+  public subscribe (next: (value: T) => void, error?: (error: any) => void, complete?: () => void) : Subscription
 
-  public subscribe(...args: never[]): never
+  public subscribe (...args: never[]): never
 
-  public subscribe(
+  public subscribe (
     nextOrObserver: ((value: T) => void) | PartialObserver<T>,
     error?:         (error: any) => void,
     complete?:      () => void,
@@ -50,7 +50,7 @@ export class RxQueue<T = any> extends Subject<T> {
     return subscription
   }
 
-  public version(): string {
+  public version (): string {
     return VERSION
   }
 }

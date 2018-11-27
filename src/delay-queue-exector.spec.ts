@@ -1,9 +1,8 @@
 #!/usr/bin/env ts-node
 
 // tslint:disable:no-shadowed-variable
-import * as test  from 'blue-tape'
-import * as sinon from 'sinon'
-// const sinonTest   = require('sinon-test')(sinon)
+import test  from 'blue-tape'
+import sinon from 'sinon'
 
 import DelayExector from './delay-queue-exector'
 
@@ -15,25 +14,27 @@ const EXPECTED_VAL3 = 3
 
 const MEANING_OF_LIFE = 42
 
-test('DelayQueueExector execute once', async function (t) {
+test('DelayQueueExector execute once', async t => {
   const spy = sinon.spy()
 
   const delay = new DelayExector(DELAY_PERIOD_TIME)
 
-  delay.execute(() => spy(EXPECTED_VAL1))
+  delay
+  .execute(() => spy(EXPECTED_VAL1))
+  .catch(() => { /* */ })
 
   t.ok(spy.calledOnce, 'should received 1 call immediately')
   t.equal(spy.firstCall.args[0], EXPECTED_VAL1, 'should get EXPECTED_VAL1')
 })
 
-test('DelayQueueExector execute thrice', async function (t) {
+test('DelayQueueExector execute thrice', async t => {
   const spy = sinon.spy()
 
   const delay = new DelayExector(DELAY_PERIOD_TIME)
 
-  delay.execute(() => spy(EXPECTED_VAL1))
-  delay.execute(() => spy(EXPECTED_VAL2))
-  delay.execute(() => spy(EXPECTED_VAL3))
+  delay.execute(() => spy(EXPECTED_VAL1)).catch(() => { /* */ })
+  delay.execute(() => spy(EXPECTED_VAL2)).catch(() => { /* */ })
+  delay.execute(() => spy(EXPECTED_VAL3)).catch(() => { /* */ })
 
   t.ok(spy.calledOnce, 'should call once immediately')
   t.equal(spy.firstCall.args[0], EXPECTED_VAL1, 'should get EXPECTED_VAL1')

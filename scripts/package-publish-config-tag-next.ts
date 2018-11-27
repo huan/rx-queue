@@ -1,6 +1,6 @@
 #!/usr/bin/env ts-node
-import * as fs    from 'fs'
-import * as path  from 'path'
+import fs    from 'fs'
+import path  from 'path'
 
 const PACKAGE_JSON = path.join(__dirname, '../package.json')
 

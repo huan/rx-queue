@@ -1,9 +1,9 @@
 #!/usr/bin/env ts-node
 
-import * as test  from 'blue-tape'
+import test  from 'blue-tape'
 import {
-  interval,
   asyncScheduler,
+  interval,
 }                 from 'rxjs'
 import {
   map,
@@ -19,7 +19,7 @@ import {
  */
 test('marble smoke testing', async t => {
 
-  function timeRange(
+  function timeRange (
     start: number,
     end: number,
     step = 1000,
@@ -40,7 +40,7 @@ test('marble smoke testing', async t => {
   })
 
   const source = timeRange(2, 8, 50, scheduler)
-  const values = {'2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8}
+  const values = { 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8 }
 
   scheduler.expectObservable(source).toBe('-----2----3----4----5----6----7----(8|)', values),
 

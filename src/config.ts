@@ -1,11 +1,3 @@
-export let VERSION = '0.0.0'
+import { version } from '../package.json'
 
-try {
-  VERSION = require('../package.json').version
-} catch (e) {
-  try {
-    VERSION = require('../../package.json').version
-  } catch (e) {
-    // Issue #25
-  }
-}
+export let VERSION = version

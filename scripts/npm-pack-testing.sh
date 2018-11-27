@@ -15,7 +15,7 @@ npm init -y
 npm install *-*.*.*.tgz \
   rxjs \
   brolog \
-  typescript@latest
+  typescript
 
 ./node_modules/.bin/tsc \
   --lib esnext,dom \
