@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zixia/rx-queue.git"
+    "url": "git+https://github.com/huan/rx-queue.git"
   },
   "keywords": [
     "queue",
@@ -33,9 +33,9 @@
   "author": "Huan LI <zixia@zixia.net>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/zixia/rx-queue/issues"
+    "url": "https://github.com/huan/rx-queue/issues"
   },
-  "homepage": "https://github.com/zixia/rx-queue#readme",
+  "homepage": "https://github.com/huan/rx-queue#readme",
   "peerDependencies": {
     "brolog": "^1.4.9",
     "rxjs": "^6.1.0"
