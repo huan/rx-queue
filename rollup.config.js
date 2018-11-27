@@ -8,7 +8,7 @@ export default {
     sourcemap: true,
     format: 'umd',
     banner: '/* rx-queue version ' + require('./package.json').version + ' */',
-    footer: '/* https://github.com/zixia */',
+    footer: '/* https://github.com/huan */',
   },
   plugins: [
     json()

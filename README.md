@@ -1,11 +1,11 @@
 # RX-QUEUE
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/zixia/rx-queue.svg)](https://greenkeeper.io/)
-[![Build Status](https://travis-ci.com/zixia/rx-queue.svg?branch=master)](https://travis-ci.com/zixia/rx-queue) [![Windows Build status](https://img.shields.io/appveyor/ci/zixia/rx-queue/master.svg?label=Windows)](https://ci.appveyor.com/project/zixia/rx-queue) [![NPM Version](https://badge.fury.io/js/rx-queue.svg)](https://badge.fury.io/js/rx-queue) [![Downloads](http://img.shields.io/npm/dm/rx-queue.svg?style=flat-square)](https://npmjs.org/package/rx-queue) [![Powered by TypeScript](https://img.shields.io/badge/Powered%20By-TypeScript-blue.svg)](https://www.typescriptlang.org/) 
+[![Greenkeeper badge](https://badges.greenkeeper.io/huan/rx-queue.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.com/huan/rx-queue.svg?branch=master)](https://travis-ci.com/huan/rx-queue) [![Windows Build status](https://img.shields.io/appveyor/ci/zixia/rx-queue/master.svg?label=Windows)](https://ci.appveyor.com/project/zixia/rx-queue) [![NPM Version](https://badge.fury.io/js/rx-queue.svg)](https://badge.fury.io/js/rx-queue) [![Downloads](http://img.shields.io/npm/dm/rx-queue.svg?style=flat-square)](https://npmjs.org/package/rx-queue) [![Powered by TypeScript](https://img.shields.io/badge/Powered%20By-TypeScript-blue.svg)](https://www.typescriptlang.org/) 
 
 Easy to Use ReactiveX Queue that Supports Delay/DelayExector/Throttle/Debounce Features Powered by RxJS.
 
-![RxQueue](https://zixia.github.io/rx-queue/images/queue.png)
+![RxQueue](https://huan.github.io/rx-queue/images/queue.png)
 > Picture Credit: [Queues in JavaScript](https://www.kirupa.com/html5/queues_in_javascript.htm)
 
 ## CLASSES
@@ -40,7 +40,7 @@ queue.subscribe(console.log)
 
 `DelayQueue` passes all the items and add delays between items.
 
-![DelayQueue](https://zixia.github.io/rx-queue/images/delay.png)
+![DelayQueue](https://huan.github.io/rx-queue/images/delay.png)
 > Picture Credit: [ReactiveX Single Operator Delay](http://reactivex.io/documentation/single.html)
 
 Practical examples of `DelayQueue`:
@@ -70,7 +70,7 @@ delay.next(3)
 
 `ThrottleQueue` passes one item and then drop all the following items in a period of time.
 
-![ThrottleQueue](https://zixia.github.io/rx-queue/images/throttle.png)
+![ThrottleQueue](https://huan.github.io/rx-queue/images/throttle.png)
 > Picture Credit: [ReactiveX Observable Throttle](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-throttle)
 
 By using throttle, we don't allow to our queue to pass more than once every X milliseconds.
@@ -97,7 +97,7 @@ throttle.next(3)
 
 `DebounceQueue` drops a item if there's another one comes in a period of time.
 
-![DebounceQueue](https://zixia.github.io/rx-queue/images/debounce.png)
+![DebounceQueue](https://huan.github.io/rx-queue/images/debounce.png)
 > Picture Credit: [ReactiveX Observable Debounce](http://reactivex.io/documentation/operators/debounce.html)
 
 The Debounce technique allow us to deal with multiple sequential items in a time period to only keep the last one.
@@ -127,7 +127,7 @@ debounce.next(3)
 
 `DelayQueueExector` calls functions one by one with a delay time period between calls.
 
-![DelayQueueExector](https://zixia.github.io/rx-queue/images/delay.png)
+![DelayQueueExector](https://huan.github.io/rx-queue/images/delay.png)
 > Picture Credit: [ReactiveX Single Operator Delay](http://reactivex.io/documentation/single.html)
 
 Practical examples of `DelayQueueExector`:
