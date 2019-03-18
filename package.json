@@ -49,7 +49,7 @@
     "brolog": "^1.2",
     "git-scripts": "git+https://github.com/nkzawa/git-scripts.git",
     "rollup": "^1.0.1",
-    "rollup-plugin-json": "^3.0.0",
+    "rollup-plugin-json": "^4.0.0",
     "rxjs": "^6.1.0",
     "semver": "^5.5.0",
     "shx": "^0.3.0",
