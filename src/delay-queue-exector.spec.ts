@@ -14,7 +14,7 @@ const EXPECTED_VAL3 = 3
 
 const MEANING_OF_LIFE = 42
 
-test('DelayQueueExector execute once', async t => {
+test('DelayQueueExecutor execute once', async t => {
   const spy = sinon.spy()
 
   const delay = new DelayExector(DELAY_PERIOD_TIME)
@@ -27,7 +27,7 @@ test('DelayQueueExector execute once', async t => {
   t.equal(spy.firstCall.args[0], EXPECTED_VAL1, 'should get EXPECTED_VAL1')
 })
 
-test('DelayQueueExector execute thrice', async t => {
+test('DelayQueueExecutor execute thrice', async t => {
   const spy = sinon.spy()
 
   const delay = new DelayExector(DELAY_PERIOD_TIME)
@@ -51,7 +51,7 @@ test('DelayQueueExector execute thrice', async t => {
   t.ok(spy.calledThrice, 'should keep third call...')
 })
 
-test('DelayQueueExector return Promise', async t => {
+test('DelayQueueExecutor return Promise', async t => {
   const delay = new DelayExector(0)
 
   const mol = await delay.execute(() => MEANING_OF_LIFE)

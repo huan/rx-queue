@@ -14,7 +14,7 @@ Easy to Use ReactiveX Queue that Supports Delay/DelayExector/Throttle/Debounce F
 1. <a href='#delayqueue'>DelayQueue</a>
 1. <a href='#throttlequeue'>ThrottleQueue</a>
 1. <a href='#debouncequeue'>DebounceQueue</a>
-1. <a href='#delayqueueexector'>DelayQueueExector</a>
+1. <a href='#DelayQueueExecutor'>DelayQueueExecutor</a>
 
 ### RxQueue
 
@@ -123,14 +123,14 @@ debounce.next(3)
 // Output: 3
 ```
 
-### DelayQueueExector
+### DelayQueueExecutor
 
-`DelayQueueExector` calls functions one by one with a delay time period between calls.
+`DelayQueueExecutor` calls functions one by one with a delay time period between calls.
 
-![DelayQueueExector](https://huan.github.io/rx-queue/images/delay.png)
+![DelayQueueExecutor](https://huan.github.io/rx-queue/images/delay.png)
 > Picture Credit: [ReactiveX Single Operator Delay](http://reactivex.io/documentation/single.html)
 
-Practical examples of `DelayQueueExector`:
+Practical examples of `DelayQueueExecutor`:
 
 1. We are calling a HTTP API which can only be called no more than ten times per second, or it will throw a `500` error.
 
@@ -169,7 +169,7 @@ delay.execute(() => console.log(3))
 
 ### v0.2 - Oct 30, 2017
 
-1. Support: `DelayQueue`, `ThrottleQueue`, `DebounceQueue`, `DelayQueueExector`.
+1. Support: `DelayQueue`, `ThrottleQueue`, `DebounceQueue`, `DelayQueueExecutor`.
 1. first version
 
 ## AUTHOR

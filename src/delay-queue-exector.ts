@@ -9,9 +9,9 @@ export interface ExecutionUnit<T = any> {
 }
 
 /**
- * DelayQueueExector calls functions one by one with a delay time period between calls.
+ * DelayQueueExecutor calls functions one by one with a delay time period between calls.
  */
-export class DelayQueueExector<T = any> extends DelayQueue<ExecutionUnit<T>> {
+export class DelayQueueExecutor<T = any> extends DelayQueue<ExecutionUnit<T>> {
   private readonly delayQueueSubscription: Subscription
 
   /**
@@ -54,4 +54,4 @@ export class DelayQueueExector<T = any> extends DelayQueue<ExecutionUnit<T>> {
   }
 }
 
-export default DelayQueueExector
+export default DelayQueueExecutor
