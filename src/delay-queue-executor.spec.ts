@@ -4,7 +4,7 @@
 import test  from 'blue-tape'
 import sinon from 'sinon'
 
-import DelayExector from './delay-queue-exector'
+import DelayExector from './delay-queue-executor'
 
 const DELAY_PERIOD_TIME = 10
 

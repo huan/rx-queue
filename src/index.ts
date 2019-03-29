@@ -3,7 +3,7 @@ export { DelayQueue }         from './delay-queue'
 export { RxQueue }            from './rx-queue'
 export { ThrottleQueue }      from './throttle-queue'
 
-import { DelayQueueExecutor }  from './delay-queue-exector'
+import { DelayQueueExecutor }  from './delay-queue-executor'
 
 export {
   DelayQueueExecutor,
