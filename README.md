@@ -158,6 +158,10 @@ delay.execute(() => console.log(3))
 
 ## CHANGELOG
 
+### v0.8 - Mar 2019
+
+1. Fix typo of ISSUE #40: rename `DelayQueueExector` to `DelayQueueExecutor`
+
 ### v0.6 - Sep 2018
 
 1. fix exception bug in browser(ie. Angular)
