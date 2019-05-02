@@ -137,9 +137,9 @@ Practical examples of `DelayQueueExecutor`:
 **Example:**
 
 ```ts
-import { DelayuQueueExector } from 'rx-queue'
+import { DelayQueueExector } from 'rx-queue'
 
-const delay = new DelayuQueueExector(500)  // set delay period time to 500 milliseconds
+const delay = new DelayQueueExector(500)  // set delay period time to 500 milliseconds
 
 delay.execute(() => console.log(1))
 delay.execute(() => console.log(2))
