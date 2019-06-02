@@ -3,7 +3,7 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/huan/rx-queue.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.com/huan/rx-queue.svg?branch=master)](https://travis-ci.com/huan/rx-queue) [![Windows Build status](https://img.shields.io/appveyor/ci/zixia/rx-queue/master.svg?label=Windows)](https://ci.appveyor.com/project/zixia/rx-queue) [![NPM Version](https://badge.fury.io/js/rx-queue.svg)](https://badge.fury.io/js/rx-queue) [![Downloads](http://img.shields.io/npm/dm/rx-queue.svg?style=flat-square)](https://npmjs.org/package/rx-queue) [![Powered by TypeScript](https://img.shields.io/badge/Powered%20By-TypeScript-blue.svg)](https://www.typescriptlang.org/) 
 
-Easy to Use ReactiveX Queue that Supports Delay/DelayExector/Throttle/Debounce Features Powered by RxJS.
+Easy to Use ReactiveX Queue that Supports Delay/DelayExecutor/Throttle/Debounce Features Powered by RxJS.
 
 ![RxQueue](https://huan.github.io/rx-queue/images/queue.png)
 > Picture Credit: [Queues in JavaScript](https://www.kirupa.com/html5/queues_in_javascript.htm)
@@ -137,9 +137,9 @@ Practical examples of `DelayQueueExecutor`:
 **Example:**
 
 ```ts
-import { DelayQueueExector } from 'rx-queue'
+import { DelayQueueExecutor } from 'rx-queue'
 
-const delay = new DelayQueueExector(500)  // set delay period time to 500 milliseconds
+const delay = new DelayQueueExecutor(500)  // set delay period time to 500 milliseconds
 
 delay.execute(() => console.log(1))
 delay.execute(() => console.log(2))
