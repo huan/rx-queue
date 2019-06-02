@@ -17,7 +17,7 @@ const MEANING_OF_LIFE = 42
 test('DelayQueueExecutor execute once', async t => {
   const spy = sinon.spy()
 
-  const delay = new DelayExector(DELAY_PERIOD_TIME)
+  const delay = new DelayExecutor(DELAY_PERIOD_TIME)
 
   delay
   .execute(() => spy(EXPECTED_VAL1))
@@ -30,7 +30,7 @@ test('DelayQueueExecutor execute once', async t => {
 test('DelayQueueExecutor execute thrice', async t => {
   const spy = sinon.spy()
 
-  const delay = new DelayExector(DELAY_PERIOD_TIME)
+  const delay = new DelayExecutor(DELAY_PERIOD_TIME)
 
   delay.execute(() => spy(EXPECTED_VAL1)).catch(() => { /* */ })
   delay.execute(() => spy(EXPECTED_VAL2)).catch(() => { /* */ })
@@ -52,7 +52,7 @@ test('DelayQueueExecutor execute thrice', async t => {
 })
 
 test('DelayQueueExecutor return Promise', async t => {
-  const delay = new DelayExector(0)
+  const delay = new DelayExecutor(0)
 
   const mol = await delay.execute(() => MEANING_OF_LIFE)
   t.equal(mol, MEANING_OF_LIFE, 'should get the function return value')
