@@ -13,6 +13,7 @@ const DEFAULT_PERIOD_TIME = 500
 
 // https://codepen.io/maindg/pen/xRwGvL
 export class RxQueue<T = any> extends Subject<T> {
+
   private itemList: T[] = []
 
   constructor (
@@ -53,6 +54,7 @@ export class RxQueue<T = any> extends Subject<T> {
   public version (): string {
     return VERSION
   }
+
 }
 
 export default RxQueue

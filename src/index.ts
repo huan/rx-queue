@@ -1,9 +1,9 @@
+import { DelayQueueExecutor }  from './delay-queue-executor'
+
 export { DebounceQueue }      from './debounce-queue'
 export { DelayQueue }         from './delay-queue'
 export { RxQueue }            from './rx-queue'
 export { ThrottleQueue }      from './throttle-queue'
-
-import { DelayQueueExecutor }  from './delay-queue-executor'
 
 export {
   DelayQueueExecutor,

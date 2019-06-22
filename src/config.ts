@@ -1,3 +1,1 @@
-import { version } from '../package.json'
-
-export let VERSION = version
+export { VERSION } from './version'

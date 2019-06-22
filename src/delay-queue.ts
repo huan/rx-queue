@@ -17,6 +17,7 @@ import RxQueue  from './rx-queue'
  * T: item type
  */
 export class DelayQueue<T = any> extends RxQueue<T> {
+
   private subscription : Subscription
   private subject      : Subject<T>
 
@@ -46,6 +47,7 @@ export class DelayQueue<T = any> extends RxQueue<T> {
     this.subscription.unsubscribe()
     super.unsubscribe()
   }
+
 }
 
 export default DelayQueue

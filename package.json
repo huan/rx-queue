@@ -9,12 +9,13 @@
     "dist": "npm run clean && npm run build && npm run rollup && npm run dist:es6to5",
     "dist:es6to5": "tsc --out ./bundles/rx-queue.umd.js --target es5 --allowJs bundles/rx-queue.es6.umd.js --lib es6,dom",
     "build": "tsc --module es6 && shx cp package.json dist/",
-    "lint": "npm run lint:ts",
+    "lint": "npm run lint:es && npm run lint:ts",
     "rollup": "rollup -c",
-    "lint:ts": "tslint --project tsconfig.json && tsc --noEmit",
+    "lint:ts": "tsc --noEmit",
     "test": "npm run lint && npm run test:unit",
     "test:unit": "blue-tape -r ts-node/register \"src/**/*.spec.ts\" \"tests/**/*.spec.ts\"",
-    "test:pack": "bash -x scripts/npm-pack-testing.sh"
+    "test:pack": "bash -x scripts/npm-pack-testing.sh",
+    "lint:es": "eslint --ignore-pattern fixtures/ 'src/**/*.ts' 'tests/**/*.ts'"
   },
   "repository": {
     "type": "git",
@@ -41,24 +42,19 @@
     "rxjs": "^6.1.0"
   },
   "devDependencies": {
-    "@types/blue-tape": "^0.1.33",
-    "@types/node": "^12.0.0",
-    "@types/semver": "^6.0.0",
+    "@chatie/eslint-config": "^0.6.18",
+    "@chatie/git-scripts": "^0.2.5",
+    "@chatie/semver": "^0.4.7",
+    "@chatie/tsconfig": "^0.6.1",
     "@types/sinon": "^7.0.0",
-    "blue-tape": "^1.0.0",
     "brolog": "^1.2",
-    "git-scripts": "git+https://github.com/nkzawa/git-scripts.git",
+    "pkg-jq": "^0.2.4",
     "rollup": "^1.0.1",
     "rollup-plugin-json": "^4.0.0",
     "rxjs": "^6.5.2",
-    "semver": "^6.0.0",
     "shx": "^0.3.0",
-    "sinon": "^7.1.1",
     "source-map-support": "^0.5.0",
-    "ts-node": "^8.0.3",
-    "tslint": "^5.11.0",
-    "tslint-config-standard": "^8.0.1",
-    "typescript": "^3.1.0-dev.20180915"
+    "tstest": "^0.4.2"
   },
   "files": [
     "LICENSE",
@@ -68,13 +64,14 @@
     "dist/",
     "src/"
   ],
-  "git": {
-    "scripts": {
-      "pre-push": "bash scripts/pre-push.sh"
-    }
-  },
   "publishConfig": {
     "access": "public",
-    "tag": "latest"
+    "tag": "next"
+  },
+  "dependencies": {},
+  "git": {
+    "scripts": {
+      "pre-push": "npx git-scripts-pre-push"
+    }
   }
 }

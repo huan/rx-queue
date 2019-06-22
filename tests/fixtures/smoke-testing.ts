@@ -2,15 +2,20 @@ import {
   DelayQueue,
   RxQueue,
   ThrottleQueue,
+  VERSION,
 }                 from 'rx-queue'
 
+if (VERSION === '0.0.0') {
+  throw new Error('version should be set before publishing')
+}
+
 const rq = new RxQueue()
-console.log(`RxQueue v${rq.version()}`)
+console.info(`RxQueue v${rq.version()}`)
 
 const dq = new DelayQueue()
-console.log(`DelayQueue v${dq.version()}`)
+console.info(`DelayQueue v${dq.version()}`)
 
 const tq = new ThrottleQueue()
-console.log(`ThrottleQueue v${tq.version()}`)
+console.info(`ThrottleQueue v${tq.version()}`)
 
-console.log('Smoke Testing PASSED!')
+console.info('Smoke Testing PASSED!')

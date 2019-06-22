@@ -12,6 +12,7 @@ export interface ExecutionUnit<T = any> {
  * DelayQueueExecutor calls functions one by one with a delay time period between calls.
  */
 export class DelayQueueExecutor<T = any> extends DelayQueue<ExecutionUnit<T>> {
+
   private readonly delayQueueSubscription: Subscription
 
   /**
@@ -52,6 +53,7 @@ export class DelayQueueExecutor<T = any> extends DelayQueue<ExecutionUnit<T>> {
     this.delayQueueSubscription.unsubscribe()
     super.unsubscribe()
   }
+
 }
 
 export default DelayQueueExecutor

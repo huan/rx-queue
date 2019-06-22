@@ -17,6 +17,7 @@ import RxQueue  from './rx-queue'
  * T: item type
  */
 export class ThrottleQueue<T = any> extends RxQueue<T> {
+
   private subscription : Subscription
   private subject      : Subject<T>
 
@@ -31,7 +32,7 @@ export class ThrottleQueue<T = any> extends RxQueue<T> {
 
     this.subject      = new Subject<T>()
     this.subscription = this.subject.pipe(
-      throttle(_ => interval(this.period)),
+      throttle(() => interval(this.period)),
     ).subscribe((item: T) => super.next(item))
   }
 
@@ -43,6 +44,7 @@ export class ThrottleQueue<T = any> extends RxQueue<T> {
     this.subscription.unsubscribe()
     super.unsubscribe()
   }
+
 }
 
 export default ThrottleQueue
