@@ -31,8 +31,7 @@ export class DebounceQueue<T = unknown> extends RxQueue<T> {
     this.subject      = new Subject<T>()
     this.subscription = this.subject.pipe(
       debounce(() => interval(this.period)),
-    )
-      .subscribe((item: T) => super.next(item))
+    ).subscribe((item: T) => super.next(item))
   }
 
   public next (item: T) {
