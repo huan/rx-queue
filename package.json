@@ -1,6 +1,6 @@
 {
   "name": "rx-queue",
-  "version": "0.9.5",
+  "version": "0.11.5",
   "description": "Easy to Use ReactiveX Queue that Supports Delay/DelayExecutor/Throttle/Debounce Features Powered by RxJS.",
   "main": "bundles/rx-queue.umd.js",
   "typings": "dist/src/index.d.ts",
@@ -38,23 +38,23 @@
   },
   "homepage": "https://github.com/huan/rx-queue#readme",
   "peerDependencies": {
-    "brolog": "^1.4.9",
-    "rxjs": "^6.1.0"
+    "brolog": "^1.8.3",
+    "rxjs": "^6.5.4"
   },
   "devDependencies": {
     "@chatie/eslint-config": "^0.8.1",
-    "@chatie/git-scripts": "^0.2.5",
+    "@chatie/git-scripts": "^0.6.1",
     "@chatie/semver": "^0.4.7",
-    "@chatie/tsconfig": "^0.6.1",
-    "@types/sinon": "^7.0.0",
+    "@chatie/tsconfig": "^0.8.0",
+    "@types/sinon": "^9.0.0",
     "brolog": "^1.2",
     "pkg-jq": "^0.2.4",
-    "rollup": "^1.27.14",
+    "rollup": "^2.3.2",
     "rollup-plugin-json": "^4.0.0",
-    "rxjs": "^6.5.2",
-    "shx": "^0.3.0",
-    "source-map-support": "^0.5.0",
-    "tstest": "^0.4.2"
+    "rxjs": "^6.5.4",
+    "shx": "^0.3.2",
+    "source-map-support": "^0.5.16",
+    "tstest": "^0.4.10"
   },
   "files": [
     "LICENSE",

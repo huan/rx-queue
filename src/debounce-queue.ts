@@ -14,7 +14,7 @@ import RxQueue  from './rx-queue'
  *
  * T: item type
  */
-export class DebounceQueue<T = any> extends RxQueue<T> {
+export class DebounceQueue<T = unknown> extends RxQueue<T> {
 
   private subscription : Subscription
   private subject      : Subject<T>

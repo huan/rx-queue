@@ -16,7 +16,7 @@ import RxQueue  from './rx-queue'
  *
  * T: item type
  */
-export class ThrottleQueue<T = any> extends RxQueue<T> {
+export class ThrottleQueue<T = unknown> extends RxQueue<T> {
 
   private subscription : Subscription
   private subject      : Subject<T>

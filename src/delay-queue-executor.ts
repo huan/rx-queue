@@ -1,7 +1,7 @@
 import { Subscription } from 'rxjs'
 import DelayQueue from './delay-queue'
 
-export interface ExecutionUnit<T = any> {
+export interface ExecutionUnit<T = unknown> {
   fn      : () => T,
   name    : string,
   resolve : (value?: T | PromiseLike<T>) => void,
@@ -11,7 +11,7 @@ export interface ExecutionUnit<T = any> {
 /**
  * DelayQueueExecutor calls functions one by one with a delay time period between calls.
  */
-export class DelayQueueExecutor<T = any> extends DelayQueue<ExecutionUnit<T>> {
+export class DelayQueueExecutor<T = unknown> extends DelayQueue<ExecutionUnit<T>> {
 
   private readonly delayQueueSubscription: Subscription
 

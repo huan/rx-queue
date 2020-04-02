@@ -16,7 +16,7 @@ import RxQueue  from './rx-queue'
  * DelayQueue passes all the items and add delays between items.
  * T: item type
  */
-export class DelayQueue<T = any> extends RxQueue<T> {
+export class DelayQueue<T = unknown> extends RxQueue<T> {
 
   private subscription : Subscription
   private subject      : Subject<T>

@@ -12,7 +12,7 @@ import {
 const DEFAULT_PERIOD_TIME = 500
 
 // https://codepen.io/maindg/pen/xRwGvL
-export class RxQueue<T = any> extends Subject<T> {
+export class RxQueue<T = unknown> extends Subject<T> {
 
   private itemList: T[] = []
 
