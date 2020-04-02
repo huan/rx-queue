@@ -127,6 +127,8 @@ debounce.next(3)
 
 `DelayQueueExecutor` calls functions one by one with a delay time period between calls.
 
+> If you want this feature but do not want rxjs dependencies, you can have a look on a zero dependencies alternative: [BottleNeck](https://github.com/SGrondin/bottleneck）
+
 ![DelayQueueExecutor](https://huan.github.io/rx-queue/images/delay.png)
 > Picture Credit: [ReactiveX Single Operator Delay](http://reactivex.io/documentation/single.html)
 
