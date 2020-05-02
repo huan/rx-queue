@@ -185,6 +185,6 @@ delay.execute(() => console.log(3))
 
 ## COPYRIGHT & LICENSE
 
-* Code & Docs © 2017-2018 Huan LI \<zixia@zixia.net\>
+* Code & Docs © 2017-now Huan LI \<zixia@zixia.net\>
 * Code released under the Apache-2.0 License
 * Docs released under Creative Commons
