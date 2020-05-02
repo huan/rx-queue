@@ -161,7 +161,7 @@ delay.execute(() => console.log(3))
 
 ### v0.8 - Mar 2019
 
-1. Fix typo of issue [#40](https://github.com/huan/rx-queue/issues/40): rename `DelayQueueExector` to `DelayQueueExecutor`
+1. Fix typo: issue [#40](https://github.com/huan/rx-queue/issues/40) - rename `DelayQueueExector` to `DelayQueueExecutor`
 
 ### v0.6 - Sep 2018
 
