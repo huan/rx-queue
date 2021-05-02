@@ -39,7 +39,7 @@
   "homepage": "https://github.com/huan/rx-queue#readme",
   "peerDependencies": {
     "brolog": "^1.8.3",
-    "rxjs": "^6.5.4"
+    "rxjs": "^7.0.0"
   },
   "devDependencies": {
     "@chatie/eslint-config": "^0.12.1",
@@ -51,7 +51,7 @@
     "pkg-jq": "^0.2.4",
     "rollup": "^2.3.2",
     "rollup-plugin-json": "^4.0.0",
-    "rxjs": "^6.5.4",
+    "rxjs": "^7.0.0",
     "shx": "^0.3.2",
     "source-map-support": "^0.5.16",
     "tstest": "^0.4.10"
