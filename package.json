@@ -46,7 +46,7 @@
     "@chatie/git-scripts": "^0.6.1",
     "@chatie/semver": "^0.4.7",
     "@chatie/tsconfig": "^0.10.1",
-    "@types/sinon": "^9.0.0",
+    "@types/sinon": "^10.0.1",
     "brolog": "^1.2",
     "pkg-jq": "^0.2.4",
     "rollup": "^2.3.2",
