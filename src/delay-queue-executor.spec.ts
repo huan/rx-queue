@@ -36,19 +36,19 @@ test('DelayQueueExecutor execute thrice', async t => {
   delay.execute(() => spy(EXPECTED_VAL2)).catch(() => { /* */ })
   delay.execute(() => spy(EXPECTED_VAL3)).catch(() => { /* */ })
 
-  t.ok(spy.calledOnce, 'should call once immediately')
-  t.equal(spy.firstCall.args[0], EXPECTED_VAL1, 'should get EXPECTED_VAL1')
+  t.equal(spy.callCount, 1, 'should call once immediately')
+  t.equal(spy.lastCall.args[0], EXPECTED_VAL1, 'should get EXPECTED_VAL1')
 
   await new Promise(resolve => setTimeout(resolve, DELAY_PERIOD_TIME + 3))
-  t.ok(spy.calledTwice, 'should call twice after DELAY_PERIOD_TIME')
-  t.equal(spy.secondCall.args[0], EXPECTED_VAL2, 'should get EXPECTED_VAL2')
+  t.equal(spy.callCount, 2, 'should call twice after DELAY_PERIOD_TIME')
+  t.equal(spy.lastCall.args[0], EXPECTED_VAL2, 'should get EXPECTED_VAL2')
 
   await new Promise(resolve => setTimeout(resolve, DELAY_PERIOD_TIME + 3))
-  t.ok(spy.calledThrice, 'should call thrice after 2 x DELAY_PERIOD_TIME')
-  t.equal(spy.thirdCall.args[0], EXPECTED_VAL3, 'should get EXPECTED_VAL3')
+  t.equal(spy.callCount, 3, 'should call thrice after 2 x DELAY_PERIOD_TIME')
+  t.equal(spy.lastCall.args[0], EXPECTED_VAL3, 'should get EXPECTED_VAL3')
 
   await new Promise(resolve => setTimeout(resolve, DELAY_PERIOD_TIME + 3))
-  t.ok(spy.calledThrice, 'should keep third call...')
+  t.equal(spy.callCount, 3, 'should keep third call...')
 })
 
 test('DelayQueueExecutor return Promise', async t => {

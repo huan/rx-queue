@@ -75,6 +75,7 @@ delay.next(3)
 By using throttle, we don't allow to our queue to pass more than once every X milliseconds.
 
 Practical examples of `ThrottleQueue`:
+
 1. User is typing text in a textarea. We want to call auto-save function when user is typing, and want it only run at most once every five minutes.
 
 **Example:**
@@ -104,6 +105,7 @@ The Debounce technique allow us to deal with multiple sequential items in a time
 Debouncing enforces that no more items will be passed again until a certain amount of time has passed without any new items coming.
 
 Practical examples of `DebounceQueue`:
+
 1. User is typing text in a search box. We want to make an auto-complete function call only after the user stop typing for 500 milliseconds.
 
 **Example:**
@@ -158,6 +160,12 @@ delay.execute(() => console.log(3))
 * [Writing Marble Tests](https://github.com/ReactiveX/rxjs/blob/master/doc/writing-marble-tests.md)
 
 ## CHANGELOG
+
+### v0.12 - May 2021
+
+1. Upgrade RxJS to v7.1
+1. Upgrade TypeScript to v4.3
+1. Fix RxJS breaking changes [#71](https://github.com/huan/rx-queue/issues/71)
 
 ### v0.8 - Mar 2019
 

@@ -1,4 +1,5 @@
 import { Subscription } from 'rxjs'
+
 import DelayQueue from './delay-queue'
 
 export interface ExecutionUnit<T = unknown> {

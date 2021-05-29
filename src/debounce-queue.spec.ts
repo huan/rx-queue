@@ -36,8 +36,8 @@ test('DebounceQueue 2 item', async t => {
   q.next(EXPECTED_ITEM2)
 
   await new Promise(resolve => setTimeout(resolve, DELAY_PERIOD_TIME + 3))
-  t.ok(spy.calledOnce, 'should be called only once after DELAY_PERIOD_TIME because its debounced')
-  t.deepEqual(spy.firstCall.args[0], EXPECTED_ITEM2, 'should get the EXPECTED_ITEM2')
+  t.equal(spy.callCount, 1, 'should be called only once after DELAY_PERIOD_TIME because its debounced')
+  t.deepEqual(spy.lastCall.args[0], EXPECTED_ITEM2, 'should get the EXPECTED_ITEM2')
 })
 
 test('DebounceQueue 3 items', async t => {
@@ -52,10 +52,10 @@ test('DebounceQueue 3 items', async t => {
   await new Promise(resolve => setTimeout(resolve, DELAY_PERIOD_TIME + 3))
 
   q.next(EXPECTED_ITEM3)
-  t.ok(spy.calledOnce, 'should called once right after next(EXPECTED_ITEM3)')
-  t.deepEqual(spy.firstCall.args[0], EXPECTED_ITEM2, 'the first call should receive EXPECTED_ITEM2')
+  t.equal(spy.callCount, 1, 'should called once right after next(EXPECTED_ITEM3)')
+  t.deepEqual(spy.lastCall.args[0], EXPECTED_ITEM2, 'the first call should receive EXPECTED_ITEM2')
 
   await new Promise(resolve => setTimeout(resolve, DELAY_PERIOD_TIME + 3))
-  t.ok(spy.calledTwice, 'should be called twice after the DELAY_PERIOD_TIME')
-  t.deepEqual(spy.secondCall.args[0], EXPECTED_ITEM3, 'should get EXPECTED_ITEM3')
+  t.equal(spy.callCount, 2, 'should be called twice after the DELAY_PERIOD_TIME')
+  t.deepEqual(spy.lastCall.args[0], EXPECTED_ITEM3, 'should get EXPECTED_ITEM3')
 })

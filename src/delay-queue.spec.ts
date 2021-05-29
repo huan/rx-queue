@@ -20,8 +20,8 @@ test('DelayQueue 1 item', async t => {
 
   q.next(EXPECTED_ITEM1)
 
-  t.ok(spy.calledOnce, 'should called right after first item')
-  t.deepEqual(spy.firstCall.args[0], EXPECTED_ITEM1, 'should get the first item immediately')
+  t.equal(spy.callCount, 1, 'should called right after first item')
+  t.deepEqual(spy.lastCall.args[0], EXPECTED_ITEM1, 'should get the first item immediately')
 })
 
 test('DelayQueue 2 item', async t => {
@@ -33,11 +33,12 @@ test('DelayQueue 2 item', async t => {
   q.next(EXPECTED_ITEM1)
   q.next(EXPECTED_ITEM2)
 
-  t.ok(spy.calledOnce, 'should get one item after next two item')
-  t.deepEqual(spy.firstCall.args[0], EXPECTED_ITEM1, 'should get the first item only')
+  t.equal(spy.callCount, 1, 'should get one item after next two item')
+  t.deepEqual(spy.lastCall.args[0], EXPECTED_ITEM1, 'should get the first item only')
 
   await new Promise(resolve => setTimeout(resolve, DELAY_PERIOD_TIME + 3))
-  t.ok(spy.calledTwice, 'should get the second item after period delay')
+  t.equal(spy.callCount, 2, 'should get the second item after period delay')
+  t.deepEqual(spy.lastCall.args[0], EXPECTED_ITEM2, 'should get the second item for last call')
 })
 
 test('DelayQueue 3 items', async t => {
@@ -50,10 +51,14 @@ test('DelayQueue 3 items', async t => {
   q.next(EXPECTED_ITEM2)
   q.next(EXPECTED_ITEM3)
 
-  await new Promise(resolve => setTimeout(resolve, DELAY_PERIOD_TIME + 3))
-  t.ok(spy.calledTwice, 'get second item after period')
+  t.equal(spy.callCount, 1, 'get first item immediatelly')
+  t.deepEqual(spy.lastCall.args[0], EXPECTED_ITEM1, 'should received EXPECTED_ITEM1 immediatelly')
 
   await new Promise(resolve => setTimeout(resolve, DELAY_PERIOD_TIME + 3))
-  t.ok(spy.calledThrice, 'should get the third item after 2 x period')
-  t.deepEqual(spy.thirdCall.args[0], EXPECTED_ITEM3, 'should received EXPECTED_ITEM3 after 2 x period')
+  t.equal(spy.callCount, 2, 'get second item after period')
+  t.deepEqual(spy.lastCall.args[0], EXPECTED_ITEM2, 'should received EXPECTED_ITEM2 after 1 x period')
+
+  await new Promise(resolve => setTimeout(resolve, DELAY_PERIOD_TIME + 3))
+  t.equal(spy.callCount, 3, 'should get the third item after 2 x period')
+  t.deepEqual(spy.lastCall.args[0], EXPECTED_ITEM3, 'should received EXPECTED_ITEM3 after 2 x period')
 })
