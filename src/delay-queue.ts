@@ -1,6 +1,5 @@
 import {
   concat,
-  EMPTY,
   of,
   Subject,
   Subscription,
@@ -8,7 +7,7 @@ import {
 }                 from 'rxjs'
 import {
   concatMap,
-  skipUntil,
+  skip,
 }                 from 'rxjs/operators'
 
 import RxQueue  from './rx-queue'
@@ -39,9 +38,7 @@ export class DelayQueue<T = unknown> extends RxQueue<T> {
          * Issue #71 - DelayQueue failed: behavior breaking change after RxJS from v6 to v7
          *  https://github.com/huan/rx-queue/issues/71
          */
-        timer(this.period).pipe(
-          skipUntil(EMPTY)
-        ),
+        timer(this.period).pipe(skip(1)),
       )),
     ).subscribe((item: T) => super.next(item))
   }
