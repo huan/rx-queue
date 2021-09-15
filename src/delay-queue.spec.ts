@@ -24,7 +24,6 @@ test('DelayQueue 1 item', async t => {
   t.deepEqual(spy.lastCall.args[0], EXPECTED_ITEM1, 'should get the first item immediately')
 })
 
-
 test('DelayQueue 2 item', async t => {
   const q = new DelayQueue(DELAY_PERIOD_TIME)
 
@@ -41,7 +40,6 @@ test('DelayQueue 2 item', async t => {
   t.equal(spy.callCount, 2, 'should get the second item after period delay')
   t.deepEqual(spy.lastCall.args[0], EXPECTED_ITEM2, 'should get the second item for last call')
 })
-
 
 test('DelayQueue clear item', async t => {
   const q = new DelayQueue(DELAY_PERIOD_TIME)

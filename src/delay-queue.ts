@@ -21,7 +21,6 @@ export class DelayQueue<T = unknown> extends RxQueue<T> {
   private subscription : Subscription
   private subject      : Subject<T>
 
-
   private initialize () {
     this.subject      = new Subject<T>()
     this.subscription = this.subject.pipe(
