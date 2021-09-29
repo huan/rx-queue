@@ -45,7 +45,7 @@
     "@chatie/eslint-config": "^0.12.3",
     "@chatie/git-scripts": "^0.6.2",
     "@chatie/semver": "^0.4.7",
-    "@chatie/tsconfig": "^0.16.1",
+    "@chatie/tsconfig": "^0.20.2",
     "@types/sinon": "^10.0.1",
     "brolog": "^1.12",
     "pkg-jq": "^0.2.11",
