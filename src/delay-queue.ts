@@ -21,15 +21,7 @@ export class DelayQueue<T = unknown> extends RxQueue<T> {
   private subscription : Subscription
   private subject      : Subject<T>
 
-  /**
-   *
-   * @param period milliseconds
-   */
-  constructor (
-    period?: number, // milliseconds
-  ) {
-    super(period)
-
+  private initialize () {
     this.subject      = new Subject<T>()
     this.subscription = this.subject.pipe(
       concatMap(x => concat(
@@ -45,6 +37,17 @@ export class DelayQueue<T = unknown> extends RxQueue<T> {
     ).subscribe((item: T) => super.next(item))
   }
 
+  /**
+   *
+   * @param period milliseconds
+   */
+  constructor (
+    period?: number, // milliseconds
+  ) {
+    super(period)
+    this.initialize()
+  }
+
   public next (item: T) {
     this.subject.next(item)
   }
@@ -52,6 +55,11 @@ export class DelayQueue<T = unknown> extends RxQueue<T> {
   public unsubscribe () {
     this.subscription.unsubscribe()
     super.unsubscribe()
+  }
+
+  public clear () {
+    this.subscription.unsubscribe()
+    this.initialize()
   }
 
 }

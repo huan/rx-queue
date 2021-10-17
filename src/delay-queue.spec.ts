@@ -41,6 +41,26 @@ test('DelayQueue 2 item', async t => {
   t.deepEqual(spy.lastCall.args[0], EXPECTED_ITEM2, 'should get the second item for last call')
 })
 
+test('DelayQueue clear item', async t => {
+  const q = new DelayQueue(DELAY_PERIOD_TIME)
+
+  const spy = sinon.spy()
+  q.subscribe(spy)
+
+  q.next(EXPECTED_ITEM1)
+  q.next(EXPECTED_ITEM2)
+
+  t.equal(spy.callCount, 1, 'should get one item after next two item')
+  t.deepEqual(spy.lastCall.args[0], EXPECTED_ITEM1, 'should get the first item only')
+  q.clear()
+  await new Promise(resolve => setTimeout(resolve, DELAY_PERIOD_TIME + 3))
+  t.equal(spy.callCount, 1, 'should not get the second item after period delay')
+
+  q.next(EXPECTED_ITEM1)
+  t.equal(spy.callCount, 2, 'should get the second item after period delay')
+  t.deepEqual(spy.lastCall.args[0], EXPECTED_ITEM1, 'should get the second item for last call')
+})
+
 test('DelayQueue 3 items', async t => {
   const q = new DelayQueue(DELAY_PERIOD_TIME)
 
