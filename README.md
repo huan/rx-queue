@@ -159,6 +159,53 @@ delay.execute(() => console.log(3))
 // Output: 3
 ```
 
+### `concurrencyExecuter()`
+
+When we have a array and need to use an async function to get the result of them, we can use `Promise.all()`:
+
+```ts
+const asyncTask = async function (item) {
+  /**
+   * Some heavy task, like:
+   *  1. requires XXX MB of memory
+   *  2. make 10+ new network connections and each takes 10+ seconds
+   *  3. etc.
+   */
+}
+
+const result = await Promise.all(
+  hugeArray.map(item => asyncTask),
+)
+```
+
+Because the above example `asyncTask` requires lots of resource for each task,
+so if the `hugeArray` has many items, like 1,000+,
+then to use the `Promise.all` will very likely to crash the system.
+
+The solution is that we can use `concurrencyExecuter()` to execute them in parallel with a concurrency limitation.
+
+```ts
+// async task:
+const heavyTask = (n: number) => Promise.resolve(resolve => setTimeout(resolve(n^2), 100))
+
+const results = concurrencyExecuter(
+  2,          // concurrency
+)(
+  heavyTask,  // task async function
+)(
+  [1, 2, 3],  // task arguments
+)
+
+/**
+ * in the following `for` loop, we will have 2 currency tasks running at the same time.
+ */
+for await (const result of results) {
+  console.log(result)
+}
+```
+
+That's it.
+
 ## SEE ALSO
 
 * [Writing Marble Tests](https://github.com/ReactiveX/rxjs/blob/master/doc/writing-marble-tests.md)

@@ -5,9 +5,9 @@ import {
   sinon,
 }             from 'tstest'
 
-import { concurrencyTaskExecuter } from './concurrency-executer.js'
+import { concurrencyExecuter } from './concurrency-executer.js'
 
-test('concurrencyTaskExecuter() smoke testing', async t => {
+test('concurrencyExecuter() smoke testing', async t => {
   const sandbox = sinon.createSandbox({
     useFakeTimers: true,
   })
@@ -21,7 +21,7 @@ test('concurrencyTaskExecuter() smoke testing', async t => {
     return v * 10
   }
 
-  const iterator = concurrencyTaskExecuter(
+  const iterator = concurrencyExecuter(
     CONCURRENCY,
   )(
     task,
