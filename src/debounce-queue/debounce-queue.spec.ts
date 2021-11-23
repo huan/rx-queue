@@ -1,10 +1,11 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env -S node --no-warnings --loader ts-node/esm
 
-// tslint:disable:no-shadowed-variable
-import test  from 'blue-tape'
-import sinon from 'sinon'
+import {
+  test,
+  sinon,
+}           from 'tstest'
 
-import DebounceQueue from './debounce-queue'
+import DebounceQueue from './debounce-queue.js'
 
 const EXPECTED_ITEM1 = { test: 'testing123' }
 const EXPECTED_ITEM2 = { mol: 42 }

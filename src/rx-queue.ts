@@ -6,7 +6,7 @@ import {
 
 import {
   VERSION,
-}         from './config'
+}             from './config.js'
 
 // default set to 500 milliseconds
 const DEFAULT_PERIOD_TIME = 500
@@ -22,7 +22,7 @@ export class RxQueue<T = unknown> extends Subject<T> {
     super()
   }
 
-  public next (item: T) {
+  override next (item: T) {
     if (this.observers.length > 0) {
       super.next(item)
     } else {
@@ -30,12 +30,12 @@ export class RxQueue<T = unknown> extends Subject<T> {
     }
   }
 
-  public subscribe (observer: PartialObserver<T>)                                                  : Subscription
-  public subscribe (next: (value: T) => void, error?: (error: any) => void, complete?: () => void) : Subscription
+  override subscribe (observer: PartialObserver<T>)                                                  : Subscription
+  override subscribe (next: (value: T) => void, error?: (error: any) => void, complete?: () => void) : Subscription
 
-  public subscribe (...args: never[]): never
+  override subscribe (...args: never[]): never
 
-  public subscribe (
+  override subscribe (
     nextOrObserver: ((value: T) => void) | PartialObserver<T>,
     error?:         (error: any) => void,
     complete?:      () => void,

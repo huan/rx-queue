@@ -1,19 +1,28 @@
 {
   "name": "rx-queue",
-  "version": "0.12.6",
-  "description": "Easy to Use ReactiveX Queue that Supports Delay/DelayExecutor/Throttle/Debounce Features Powered by RxJS.",
-  "main": "bundles/rx-queue.umd.js",
-  "typings": "dist/src/index.d.ts",
+  "version": "1.0.0",
+  "description": "Easy to Use ReactiveX Queue that Supports Delay/DelayExecutor/Throttle/Debounce/Concurrency Features Powered by RxJS/IxJS",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/src/mod.js",
+      "require": "./dist/cjs/src/mod.js"
+    }
+  },
+  "typings": "./dist/esm/src/mod.d.ts",
+  "engines": {
+    "node": ">=16",
+    "npm": ">=7"
+  },
   "scripts": {
-    "clean": "rm -fr dist/* bundles/*",
-    "dist": "npm run clean && npm run build && npm run rollup && npm run dist:es6to5",
-    "dist:es6to5": "tsc --out ./bundles/rx-queue.umd.js --target es5 --allowJs bundles/rx-queue.es6.umd.js --lib es6,dom",
-    "build": "tsc --module es6 && shx cp package.json dist/",
-    "lint": "npm run lint:es && npm run lint:ts",
-    "rollup": "rollup -c",
-    "lint:ts": "tsc --noEmit",
-    "test": "npm run lint && npm run test:unit",
-    "test:unit": "blue-tape -r ts-node/register \"src/**/*.spec.ts\" \"tests/**/*.spec.ts\"",
+    "clean": "shx rm -fr dist/*",
+    "dist": "npm-run-all clean build dist:commonjs",
+    "build": "tsc && tsc -p tsconfig.cjs.json",
+    "dist:commonjs": "jq -n \"{ type: \\\"commonjs\\\" }\" > dist/cjs/package.json",
+    "lint": "npm-run-all lint:es lint:ts",
+    "lint:ts": "tsc --isolatedModules --noEmit",
+    "test": "npm-run-all lint test:unit",
+    "test:unit": "cross-env NODE_OPTIONS=\"--no-warnings --loader=ts-node/esm\" tap \"src/**/*.spec.ts\" \"tests/*.spec.ts\"",
     "test:pack": "bash -x scripts/npm-pack-testing.sh",
     "lint:es": "eslint --ignore-pattern fixtures/ 'src/**/*.ts' 'tests/**/*.ts'"
   },
@@ -38,30 +47,20 @@
   },
   "homepage": "https://github.com/huan/rx-queue#readme",
   "peerDependencies": {
-    "brolog": ">=1",
-    "rxjs": ">=7"
+    "ix": "^4.5.2",
+    "rxjs": "^7.4.0"
   },
   "devDependencies": {
-    "@chatie/eslint-config": "^0.14.1",
+    "@chatie/eslint-config": "^1.0.4",
     "@chatie/git-scripts": "^0.6.2",
     "@chatie/semver": "^0.4.7",
-    "@chatie/tsconfig": "^0.20.2",
-    "@types/sinon": "^10.0.1",
-    "brolog": "^1.12",
-    "pkg-jq": "^0.2.11",
-    "rollup": "^2.50.4",
-    "rollup-plugin-json": "^4.0.0",
-    "rxjs": "^7.1.0",
-    "shx": "^0.3.3",
-    "source-map-support": "^0.5.19",
-    "tstest": "^0.4.10",
-    "typescript": "^4.3.2"
+    "@chatie/tsconfig": "^4.5.3",
+    "@types/sinon": "^10.0.6",
+    "source-map-support": "^0.5.21",
+    "tstest": "^1.0.1",
+    "typescript": "^4.5.2"
   },
   "files": [
-    "LICENSE",
-    "README.md",
-    "package.json",
-    "bundles/",
     "dist/",
     "src/"
   ],

@@ -1,10 +1,11 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env -S node --no-warnings --loader ts-node/esm
 
-// tslint:disable:no-shadowed-variable
-import test  from 'blue-tape'
-import sinon from 'sinon'
+import {
+  test,
+  sinon,
+}           from 'tstest'
 
-import DelayExecutor from './delay-queue-executor'
+import DelayExecutor from './delay-queue-executor.js'
 
 const DELAY_PERIOD_TIME = 10
 

@@ -1,41 +1,18 @@
 {
+  "extends": "@chatie/tsconfig",
   "compilerOptions": {
-      "allowSyntheticDefaultImports": true
-    , "declaration": true
-    , "emitDecoratorMetadata": true
-    , "experimentalDecorators": true
-    , "skipLibCheck": true
-    , "noUnusedLocals": true
-    , "noImplicitReturns": true
-    , "noFallthroughCasesInSwitch": true
-    , "strictNullChecks": true
-    , "alwaysStrict": true
-    , "noImplicitAny": true
-    , "noImplicitThis": true
-    , "noUnusedParameters": true
-    , "resolveJsonModule": true
-    , "esModuleInterop": true
-
-    , "traceResolution": false
-
-    , "outDir": "dist"
-
-    , "lib": [
-      "esnext"
-    ]
-    , "target": "es6"
-    , "module": "commonjs"
-    , "moduleResolution": "node"
-    , "sourceMap": true
-  }
-  , "include": [
-      "src/**/*.ts"
-    , "tests/**/*.ts"
-  ]
-  , "exclude": [
-      "dist/"
-    , "node_modules/"
-    , "tests/fixtures/"
-  ]
-  , "compileOnSave": false
+    "outDir": "dist/esm",
+  },
+  "exclude": [
+    "node_modules/",
+    "dist/",
+    "tests/fixtures/",
+  ],
+  "include": [
+    "bin/*.ts",
+    "examples/**/*.ts",
+    "scripts/**/*.ts",
+    "src/**/*.ts",
+    "tests/**/*.spec.ts",
+  ],
 }

@@ -1,12 +1,12 @@
-import { Subscription } from 'rxjs'
+import type { Subscription } from 'rxjs'
 
-import DelayQueue from './delay-queue'
+import DelayQueue from './delay-queue.js'
 
 export interface ExecutionUnit<T = unknown> {
   fn      : () => T,
   name    : string,
-  resolve : (value?: T | PromiseLike<T>) => void,
-  reject  : (reason?: any) => void,
+  resolve : (value: T | PromiseLike<T>) => void,
+  reject  : (e?: any) => void,
 }
 
 /**
@@ -35,7 +35,7 @@ export class DelayQueueExecutor<T = unknown> extends DelayQueue<ExecutionUnit<T>
     })
   }
 
-  public async execute (
+  async execute (
     fn: () => T,
     name?: string,
   ): Promise<T> {
@@ -50,7 +50,7 @@ export class DelayQueueExecutor<T = unknown> extends DelayQueue<ExecutionUnit<T>
     })
   }
 
-  public unsubscribe () {
+  override unsubscribe () {
     this.delayQueueSubscription.unsubscribe()
     super.unsubscribe()
   }

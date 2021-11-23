@@ -1,6 +1,6 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env -S node --no-warnings --loader ts-node/esm
 
-import test  from 'blue-tape'
+import { test } from 'tstest'
 import {
   asyncScheduler,
   interval,

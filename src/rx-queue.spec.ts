@@ -1,10 +1,12 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env -S node --no-warnings --loader ts-node/esm
 
 // tslint:disable:no-shadowed-variable
-import test  from 'blue-tape'
-import sinon from 'sinon'
+import {
+  test,
+  sinon,
+}           from 'tstest'
 
-import RxQueue from './rx-queue'
+import RxQueue from './rx-queue.js'
 
 test('RxQueue subscribe & next', async t => {
   const EXPECTED_ITEM = { test: 'testing123' }

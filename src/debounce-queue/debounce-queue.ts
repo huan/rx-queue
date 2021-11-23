@@ -7,7 +7,7 @@ import {
   debounce,
 }                 from 'rxjs/operators'
 
-import RxQueue  from './rx-queue'
+import RxQueue  from '../rx-queue.js'
 
 /**
  * DebounceQueue drops a item if there's another one comes in a period of time.
@@ -34,11 +34,11 @@ export class DebounceQueue<T = unknown> extends RxQueue<T> {
     ).subscribe((item: T) => super.next(item))
   }
 
-  public next (item: T) {
+  override next (item: T) {
     this.subject.next(item)
   }
 
-  public unsubscribe () {
+  override unsubscribe () {
     this.subscription.unsubscribe()
     super.unsubscribe()
   }
