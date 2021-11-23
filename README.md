@@ -165,6 +165,12 @@ delay.execute(() => console.log(3))
 
 ## CHANGELOG
 
+### main v1.0 (Nov 23, 2021)
+
+1. ES Module Support
+1. TypeScript 4.5
+1. `concurrencyExecuter()` method added
+
 ### v0.12 - May 2021
 
 1. Upgrade RxJS to v7.1
