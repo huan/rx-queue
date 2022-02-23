@@ -11,13 +11,18 @@ Easy to Use ReactiveX Queue that Supports Delay/DelayExecutor/Throttle/Debounce 
 ![RxQueue](https://huan.github.io/rx-queue/images/queue.png)
 > Picture Credit: [Queues in JavaScript](https://www.kirupa.com/html5/queues_in_javascript.htm)
 
-## CLASSES
+## API
+
+### Class
 
 1. [RxQueue](#rxqueue)
 1. [DelayQueue](#delayqueue)
 1. [ThrottleQueue](#throttlequeue)
 1. [DebounceQueue](#debouncequeue)
 1. [DelayQueueExecutor](#DelayQueueExecutor)
+
+### Function
+
 1. [concurrencyExecuter()](#concurrencyexecuter)
 
 ### RxQueue
