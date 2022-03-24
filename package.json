@@ -46,10 +46,6 @@
     "url": "https://github.com/huan/rx-queue/issues"
   },
   "homepage": "https://github.com/huan/rx-queue#readme",
-  "peerDependencies": {
-    "ix": "^4.5.2",
-    "rxjs": "^7.4.0"
-  },
   "devDependencies": {
     "@chatie/eslint-config": "^1.0.4",
     "@chatie/git-scripts": "^0.6.2",
@@ -72,5 +68,9 @@
     "scripts": {
       "pre-push": "npx git-scripts-pre-push"
     }
+  },
+  "dependencies": {
+    "ix": "^4.5.2",
+    "rxjs": "^7.5.5"
   }
 }
