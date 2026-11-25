@@ -1,21 +1,33 @@
 import {
-  DelayQueue,
   RxQueue,
+  DelayQueue,
   ThrottleQueue,
+  DebounceQueue,
   VERSION,
-}                 from 'rx-queue'
+} from 'rx-queue'
 
-if (VERSION === '0.0.0') {
-  throw new Error('version should be set before publishing')
+async function main () {
+  const q = new RxQueue()
+  const dq = new DelayQueue(10)
+  const tq = new ThrottleQueue(10)
+  const bq = new DebounceQueue(10)
+
+  q.next('test')
+  dq.next('test')
+  tq.next('test')
+  bq.next('test')
+
+  if ((VERSION as string) === '0.0.0') {
+    throw new Error('version should be set before publishing')
+  }
+
+  console.log(`RxQueue v${VERSION} smoke testing PASSED!`)
+  return 0
 }
 
-const rq = new RxQueue()
-console.info(`RxQueue v${rq.version()}`)
-
-const dq = new DelayQueue()
-console.info(`DelayQueue v${dq.version()}`)
-
-const tq = new ThrottleQueue()
-console.info(`ThrottleQueue v${tq.version()}`)
-
-console.info('Smoke Testing PASSED!')
+main()
+  .then(code => process.exit(code || 0))
+  .catch(e => {
+    console.error(e)
+    process.exit(1)
+  })

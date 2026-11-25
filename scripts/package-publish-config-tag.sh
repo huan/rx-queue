@@ -1,13 +1,19 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
 
-VERSION=$(npx pkg-jq -r .version)
+# Stable releases (no prerelease) publish on the `latest` dist-tag.
+# Prereleases stay on `next`, which is also the package.json default.
+node --input-type=module <<'EOF'
+import fs from 'node:fs'
 
-if npx --package @chatie/semver semver-is-prod $VERSION; then
-  npx pkg-jq -i '.publishConfig.tag="latest"'
-  echo "production release: publicConfig.tag set to latest."
-else
-  npx pkg-jq -i '.publishConfig.tag="next"'
-  echo 'development release: publicConfig.tag set to next.'
-fi
+const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'))
+const version = String(pkg.version)
+const isProd = /^\d+\.\d+\.\d+(?:\+.*)?$/.test(version)
 
+pkg.publishConfig ??= {}
+pkg.publishConfig.tag = isProd ? 'latest' : 'next'
+fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n')
+
+const kind = isProd ? 'production' : 'development'
+console.log(`${kind} release: publishConfig.tag set to ${pkg.publishConfig.tag}.`)
+EOF

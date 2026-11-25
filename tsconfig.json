@@ -1,18 +1,38 @@
 {
-  "extends": "@chatie/tsconfig",
   "compilerOptions": {
-    "outDir": "dist/esm",
+    "target": "esnext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "rewriteRelativeImportExtensions": true,
+    "erasableSyntaxOnly": true,
+    "isolatedModules": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmitOnError": true,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
+    "noImplicitOverride": true,
+    "noUncheckedIndexedAccess": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noFallthroughCasesInSwitch": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noUnusedParameters": true,
+    "noImplicitThis": true,
+    "forceConsistentCasingInFileNames": true,
+    "rootDir": ".",
+    "outDir": "dist/esm"
   },
-  "exclude": [
-    "node_modules/",
-    "dist/",
-    "tests/fixtures/",
-  ],
   "include": [
-    "bin/*.ts",
-    "examples/**/*.ts",
-    "scripts/**/*.ts",
     "src/**/*.ts",
-    "tests/**/*.spec.ts",
+    "tests/**/*.ts"
   ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "tests/fixtures"
+  ]
 }

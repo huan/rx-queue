@@ -1,20 +1,6 @@
-#!/usr/bin/env -S node --no-warnings --loader ts-node/esm
-
-/**
- * If you know how iterators work and how they are consumed you would't need any extra library,
- *  since it can become very easy to build your own concurrency yourself.
- *    — @Endless
- *
- * Inspired by: @link https://stackoverflow.com/a/51020535/1123955
- */
-
-/**
- * Huan's stackoverflow answer (code example) for `merge`:
- *  @link https://stackoverflow.com/a/69985103/1123955
- */
 import {
   merge,
-}           from 'ix/asynciterable/index.js'
+} from 'ix/asynciterable/index.js'
 
 type ExecuterTask <S, T> = (value: S) => T | Promise<T>
 
@@ -32,19 +18,22 @@ const executeTask = <S, T> (task: ExecuterTask<S, T>) => async function * (
  * The order will not be guaranteed. (mostly will be different)
  */
 const concurrencyExecuter = (concurrency = 1) => <S, T>
-  (task : ExecuterTask<S, T>) =>
+  (task: ExecuterTask<S, T>) =>
     async function * (
       iterator: Array<S> | IterableIterator<S>,
     ): AsyncIterableIterator<T> {
+      let iter: IterableIterator<S>
       if (Array.isArray(iterator)) {
-        iterator = iterator.values()
+        iter = iterator.values()
+      } else {
+        iter = iterator
       }
 
       const executer = executeTask(task)
 
       const resultIteratorList = new Array(concurrency)
-        .fill(iterator)
-        .map(executer) as [AsyncIterableIterator<T>, ... AsyncIterableIterator<T>[]]
+        .fill(iter)
+        .map(executer) as [AsyncIterableIterator<T>, ...AsyncIterableIterator<T>[]]
 
       yield * merge(...resultIteratorList)
     }

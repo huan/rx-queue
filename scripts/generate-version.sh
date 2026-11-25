@@ -1,18 +1,20 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
 
 SRC_VERSION_TS_FILE='src/version.ts'
 
-[ -f ${SRC_VERSION_TS_FILE} ] || {
-  echo ${SRC_VERSION_TS_FILE}" not found"
+[ -f "${SRC_VERSION_TS_FILE}" ] || {
+  echo "${SRC_VERSION_TS_FILE} not found"
   exit 1
 }
 
-VERSION=$(npx pkg-jq -r .version)
+VERSION=$(node --input-type=module -e "import fs from 'node:fs'; console.log(JSON.parse(fs.readFileSync('package.json', 'utf8')).version)")
 
-cat <<_SRC_ > ${SRC_VERSION_TS_FILE}
+cat <<_SRC_ > "${SRC_VERSION_TS_FILE}"
 /**
  * This file was auto generated from scripts/generate-version.sh
  */
-export const VERSION: string = '${VERSION}'
+export const VERSION = '${VERSION}'
 _SRC_
+
+echo "${VERSION} generated."
