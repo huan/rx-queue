@@ -1,36 +1,23 @@
 import {
   interval,
   Subject,
-  Subscription,
-}                 from 'rxjs'
-import {
+  type Subscription,
   throttle,
-}                 from 'rxjs/operators'
+} from 'rxjs'
 
-import RxQueue  from '../rx-queue.js'
+import RxQueue from '../rx-queue.ts'
 
-/**
- * ThrottleQueue
- *
- * passes one item and then drop all the following items in a period of time.
- *
- * T: item type
- */
 export class ThrottleQueue<T = unknown> extends RxQueue<T> {
 
-  private subscription : Subscription
-  private subject      : Subject<T>
+  private subscription: Subscription
+  private subject: Subject<T>
 
-  /**
-   *
-   * @param period milliseconds
-   */
   constructor (
-    period?: number, // milliseconds
+    period?: number,
   ) {
     super(period)
 
-    this.subject      = new Subject<T>()
+    this.subject = new Subject<T>()
     this.subscription = this.subject.pipe(
       throttle(() => interval(this.period)),
     ).subscribe((item: T) => super.next(item))

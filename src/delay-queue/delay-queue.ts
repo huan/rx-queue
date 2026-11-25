@@ -1,43 +1,29 @@
 import {
   concat,
-  of,
-  Subject,
-  Subscription,
-  timer,
-}                 from 'rxjs'
-import {
   concatMap,
   ignoreElements,
-}                 from 'rxjs/operators'
+  of,
+  Subject,
+  type Subscription,
+  timer,
+} from 'rxjs'
 
-import RxQueue  from '../rx-queue.js'
+import RxQueue from '../rx-queue.ts'
 
-/**
- * DelayQueue passes all the items and add delays between items.
- * T: item type
- */
 export class DelayQueue<T = unknown> extends RxQueue<T> {
 
-  private subscription : Subscription
-  private subject      : Subject<T>
+  private subscription: Subscription
+  private subject: Subject<T>
 
-  /**
-   *
-   * @param period milliseconds
-   */
   constructor (
-    period?: number, // milliseconds
+    period?: number,
   ) {
     super(period)
 
-    this.subject      = new Subject<T>()
+    this.subject = new Subject<T>()
     this.subscription = this.subject.pipe(
       concatMap(x => concat(
-        of(x),                    // emit first item right away
-        /**
-         * Issue #71 - DelayQueue failed: behavior breaking change after RxJS from v6 to v7
-         *  https://github.com/huan/rx-queue/issues/71
-         */
+        of(x),
         timer(this.period).pipe(
           ignoreElements(),
         ),
